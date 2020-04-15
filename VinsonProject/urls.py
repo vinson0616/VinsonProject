@@ -13,10 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+from django.urls import path, include,re_path
 import xadmin
 
+from users.views import IndexView
+
 urlpatterns = [
+    # 后台管理首页
     path('xadmin/', xadmin.site.urls),
+
+    # 首页
+    path('', IndexView.as_view(), name="index"),
+
+    # 用户 相关url配置
+    path("users/", include('users.urls', namespace="users")),
 ]
