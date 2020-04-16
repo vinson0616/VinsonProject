@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include,re_path
+from django.views.static import serve
+from VinsonProject.settings import MEDIA_ROOT
 import xadmin
 
 from users.views import IndexView
@@ -21,6 +23,9 @@ from users.views import IndexView
 urlpatterns = [
     # 后台管理首页
     path('xadmin/', xadmin.site.urls),
+
+    # 配置上传文件的访问处理函数
+    re_path('media/(?P<path>.*)', serve, {"document_root": MEDIA_ROOT}),
 
     # 首页
     path('', IndexView.as_view(), name="index"),

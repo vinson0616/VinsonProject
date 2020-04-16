@@ -37,7 +37,7 @@
 
 					<div class="logo logo-mob">
 						<a href="#" title="Mobilz &#8211; Multipurpose HTML Them">
-							<img style="max-width:149px;max-height:36px;" src="{% static 'images/logo@2.png' %}" alt="Mobilz &#8211; Multipurpose Wordpress Them">
+							<img style="max-width:149px;max-height:36px;" src="{% static 'images/logo.jpg' %}" alt="Mobilz &#8211; Multipurpose Wordpress Them">
 						</a>
 					</div>
 
@@ -93,7 +93,7 @@
 
 						<div class="logo logo-desk">
 							<a href="index.html" title="Mobilz &#8211; Multipurpose HTML Them">
-								<img style="max-width:149px;max-height:36px;" src="{% static 'images/logo@2.png' %}" alt="Mobilz &#8211; Multipurpose HTML Them">
+								<img style="max-width:149px;max-height:36px;" src="{% static 'images/logo.jpg' %}" alt="Mobilz &#8211; Multipurpose HTML Them">
 							</a>
 						</div>
 
@@ -102,49 +102,19 @@
 								<img style="max-width:149px;max-height:36px;" src="{% static 'images/logo@2.png' %}" alt="Mobilz &#8211; Multipurpose HTML Them">
 							</a>
 						</div>
-
-						<nav class="highlights-menu nz-clearfix">
-							<ul id="highlights-menu" class="menu">
-								<li id="menu-item-154" class="extra-green-top menu-item menu-item-154"><a href="#">Purchase</a></li>
-							</ul>
-						</nav>
-
-						<div class="sidebar-toggle" title="Open sidebar">
-							<span>&nbsp;</span>
-							<span>&nbsp;</span>
-							<span>&nbsp;</span>
-						</div>
-
-						<div class="search-toggle icon-search2"></div>
-
-
-
 						<nav class="header-menu desk-menu nz-clearfix">
 							<ul  class="menu">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="services.html">Services</a></li>
-								<li><a href="Shop.html">shop</a></li>
+								<li><a href="index.html">首页</a></li>
+								<li><a href="about.html">关于我们</a></li>
+								<li><a href="services.html">建设项目</a></li>
+								<li><a href="Shop.html">新闻动态</a></li>
+                                <li><a href="Shop.html">解决方案</a></li>
 							</ul>
 						</nav>
 
 					</div>
 
 				</div>
-
-				<div class="search nz-clearfix">
-					<div class="container">
-						<form action="#" method="get">
-							<fieldset>
-								<input type="text"  data-placeholder="Search..." value="Search..." />
-								<span class="icon-close"></span>
-								<input type="submit"  value="Search" />
-								<span class="icon-search2"></span>
-							</fieldset>
-						</form>
-					</div>
-				</div>
-
 			</div>
 
 		</header>
@@ -153,120 +123,123 @@
 			<div class="slider-loader">&nbsp;</div>
 			<div id="slider-arrow" data-target="#nz-content" class="i-separator animate nz-clearfix"><i class="icon-arrow-down8"></i></div>
 			<ul class="ninzio-slides">
-
-				<li class="post-1380 ninzio-slider type-ninzio-slider status-publish hentry" data-video="false" id="post-1380">
+               {% for banner in all_banners %}
+				<li style="background-image: url('{{ MEDIA_URL }}{{banner.image}}');" class="ninzio-slider type-ninzio-slider status-publish hentry" data-video="false">
 
 					<div class="slider-canvas container">
 
 						<div id="ninzio-layer-1380-1" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="0" data-posy="105">
 							<div class="layer-wrap">
-								<h2><span style="font-size: 52px; line-height: 62px; color: #70878f;">Welcome to</span></h2>
+								<h2><span style="font-size: 52px; line-height: 62px; color: #70878f;">欢迎光临</span></h2>
 							</div>
 						</div>
 
 						<div id="ninzio-layer-1380-2" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="0" data-posy="170">
 							<div class="layer-wrap">
-								<p><span style="font-size: 56px; line-height: 66px; color: #00a388; font-weight: 900;">MOBILZ THEME</span></p>
+								<p><span style="font-size: 56px; line-height: 66px; color: #00a388; font-weight: 900;">嘉绎实业</span></p>
 							</div>
 						</div>
 
 						<div id="ninzio-layer-1380-3" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="0" data-posy="260">
 							<div class="layer-wrap">
 								<div data-id="nz-colorbox-1" class="nz-colorbox nz-clearfix" style="width:450px;">
-									<p><span style="font-size: 18px; line-height: 28px; color: #333333; font-weight: 300;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat  legentis in dynamicus</span></p>
+									<p><span style="font-size: 18px; line-height: 28px; color: #333333; font-weight: 300;">
+                                        产品广泛应用于冶金，化工，有色金属，机械，建材，石化，制药，化肥等行业。是设计制造各类工业炉的专业厂家
+                                    </span></p>
 								</div>
 							</div>
 						</div>
 
 						<div id="ninzio-layer-1380-4" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="0" data-posy="380">
-							<div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">Purchase now</span></a>
+							<div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">现在咨询</span></a>
 							</div>
 						</div>
 
 						<div id="ninzio-layer-1380-5" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="180" data-posy="380">
-							<div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">More detailes</span></a>
+							<div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">查看我们</span></a>
 							</div>
 						</div>
 
 					</div>
 
 				</li>
+                {% endfor %}
 
-				<li class="post-1383 ninzio-slider type-ninzio-slider status-publish hentry" data-video="false" id="post-1383">
-
-					<div class="slider-canvas container">
-
-						<div id="ninzio-layer-1383-1" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="105">
-							<div class="layer-wrap">
-								<h2><span style="font-size: 52px; line-height: 62px; color: #70878f;">Welcome to</span></h2>
-							</div>
-						</div>
-
-						<div id="ninzio-layer-1383-2" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="170">
-							<div class="layer-wrap">
-								<p><span style="font-size: 56px; line-height: 66px; color: #00a388; font-weight: 900;">MOBILZ THEME</span></p>
-							</div>
-						</div>
-
-						<div id="ninzio-layer-1383-3" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="260">
-							<div class="layer-wrap">
-								<div data-id="nz-colorbox-2" class="nz-colorbox nz-clearfix" style="width:450px;">
-									<p><span style="font-size: 18px; line-height: 28px; color: #333333; font-weight: 300;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat  legentis in dynamicus</span></p>
-								</div>
-							</div>
-						</div>
-
-						<div id="ninzio-layer-1383-4" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="380">
-							<div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">Purchase now</span></a>
-							</div>
-						</div>
-
-						<div id="ninzio-layer-1383-5" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="820" data-posy="380">
-							<div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">More detailes</span></a>
-							</div>
-						</div>
-
-					</div>
-
-				</li>
-
-				<li class="post-1386 ninzio-slider type-ninzio-slider status-publish hentry" data-video="false" id="post-1386">
-
-					<div class="slider-canvas container">
-
-						<div id="ninzio-layer-1386-1" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="245" data-posy="115">
-							<div class="layer-wrap">
-								<h2 style="text-align: center;"><span style="font-size: 52px; line-height: 62px; color: #70878f;">Create new business website</span></h2>
-							</div>
-						</div>
-
-						<div id="ninzio-layer-1386-2" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="212" data-posy="180">
-							<div class="layer-wrap">
-								<p style="text-align: center;"><span style="font-size: 56px; line-height: 66px; color: #00a388; font-weight: 900;">IN MINUTES WITH MOBILZ</span></p>
-							</div>
-						</div>
-
-						<div id="ninzio-layer-1386-3" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="300" data-posy="270">
-							<div class="layer-wrap">
-								<div data-id="nz-colorbox-3" class="nz-colorbox nz-clearfix" style="width:570px;">
-									<p style="text-align: center;"><span style="font-size: 18px; line-height: 28px; color: #333333; font-weight: 300;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat  legentis.</span></p>
-								</div>
-							</div>
-						</div>
-
-						<div id="ninzio-layer-1386-4" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="410" data-posy="370">
-							<div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">Purchase now</span></a>
-							</div>
-						</div>
-
-						<div id="ninzio-layer-1386-5" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="590" data-posy="370">
-							<div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">More detailes</span></a>
-							</div>
-						</div>
-
-					</div>
-
-				</li>
+{#				<li class="post-1383 ninzio-slider type-ninzio-slider status-publish hentry" data-video="false" id="post-1383">#}
+{##}
+{#					<div class="slider-canvas container">#}
+{##}
+{#						<div id="ninzio-layer-1383-1" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="105">#}
+{#							<div class="layer-wrap">#}
+{#								<h2><span style="font-size: 52px; line-height: 62px; color: #70878f;">Welcome to</span></h2>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div id="ninzio-layer-1383-2" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="170">#}
+{#							<div class="layer-wrap">#}
+{#								<p><span style="font-size: 56px; line-height: 66px; color: #00a388; font-weight: 900;">MOBILZ THEME</span></p>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div id="ninzio-layer-1383-3" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="260">#}
+{#							<div class="layer-wrap">#}
+{#								<div data-id="nz-colorbox-2" class="nz-colorbox nz-clearfix" style="width:450px;">#}
+{#									<p><span style="font-size: 18px; line-height: 28px; color: #333333; font-weight: 300;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat  legentis in dynamicus</span></p>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div id="ninzio-layer-1383-4" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="380">#}
+{#							<div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">Purchase now</span></a>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div id="ninzio-layer-1383-5" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="820" data-posy="380">#}
+{#							<div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">More detailes</span></a>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#					</div>#}
+{##}
+{#				</li>#}
+{##}
+{#				<li class="post-1386 ninzio-slider type-ninzio-slider status-publish hentry" data-video="false" id="post-1386">#}
+{##}
+{#					<div class="slider-canvas container">#}
+{##}
+{#						<div id="ninzio-layer-1386-1" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="245" data-posy="115">#}
+{#							<div class="layer-wrap">#}
+{#								<h2 style="text-align: center;"><span style="font-size: 52px; line-height: 62px; color: #70878f;">Create new business website</span></h2>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div id="ninzio-layer-1386-2" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="212" data-posy="180">#}
+{#							<div class="layer-wrap">#}
+{#								<p style="text-align: center;"><span style="font-size: 56px; line-height: 66px; color: #00a388; font-weight: 900;">IN MINUTES WITH MOBILZ</span></p>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div id="ninzio-layer-1386-3" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="300" data-posy="270">#}
+{#							<div class="layer-wrap">#}
+{#								<div data-id="nz-colorbox-3" class="nz-colorbox nz-clearfix" style="width:570px;">#}
+{#									<p style="text-align: center;"><span style="font-size: 18px; line-height: 28px; color: #333333; font-weight: 300;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat  legentis.</span></p>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div id="ninzio-layer-1386-4" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="410" data-posy="370">#}
+{#							<div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">Purchase now</span></a>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div id="ninzio-layer-1386-5" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="590" data-posy="370">#}
+{#							<div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">More detailes</span></a>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#					</div>#}
+{##}
+{#				</li>#}
 
 			</ul>
 
@@ -863,5 +836,6 @@
 <script type='text/javascript' src='{% static 'js/controller.js' %}'></script>
 <script type='text/javascript' src='{% static 'js/js_composer_front.js' %}'></script>
 <script type='text/javascript' src='{% static 'js/contact-form.js' %}'></script>
+{% block custom_js %}{% endblock %}
 </body>
 </html>

@@ -4,7 +4,7 @@ from xadmin import views
 from django.contrib.auth.models import Group, Permission
 from xadmin.models import Log
 
-from .models import UserProfile
+from .models import UserProfile,Banner
 
 
 class BaseSetting(object):
@@ -23,6 +23,7 @@ class GlobalSettings(object):
                 {'title': '用户信息', 'url': self.get_model_url(UserProfile, 'changelist')},
             )},
             {'title': '系统管理', 'menus': (
+                {'title': '首页轮播', 'url': self.get_model_url(Banner, 'changelist')},
                 {'title': '权限分组', 'url': self.get_model_url(Group, 'changelist')},
                 {'title': '用户权限', 'url': self.get_model_url(Permission, 'changelist')},
                 {'title': '日志记录', 'url': self.get_model_url(Log, 'changelist')},
@@ -30,4 +31,12 @@ class GlobalSettings(object):
         )
 
 
+class BannerAdmin(object):
+    list_display = ['title', 'show_button', 'image', 'index', 'add_time']
+    search_fields = ['title', 'show_button', 'image', 'index']
+    list_filter = ['title', 'show_button', 'image', 'index', 'add_time']
+    readonly_fields = ['add_time']
+
+
 xadmin.site.register(views.CommAdminView, GlobalSettings)
+xadmin.site.register(Banner, BannerAdmin)
