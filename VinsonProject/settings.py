@@ -101,7 +101,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'eduonline',
+            'NAME': 'vinsonproject',
             'USER': 'root',
             'PASSWORD': 'P@ssw0rd',  # 'CHENjia520%'   #vinson,
             'HOST': '47.114.96.255'  # '47.104.226.120  #127.0.0.1'
