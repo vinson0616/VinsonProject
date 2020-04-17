@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}{% endblock %}
+{% block content %}
+    <header class="rich-header page-header" data-parallax="true" style="height:300px;background-color:#00a388;">
+        <div class="parallax-container" style="background-image:url({% static 'upload/rich_bg6.jpg' %});background-repeat:no-repeat;background-attachment:scroll;-webkit-background-size: cover;-moz-background-size: cover;background-size: cover;background-position:center top;">&nbsp;</div>
+        <div class="container nz-clearfix">
+            <div class="rich-header-content">
+                <div class="page-title-content">
+                    <h1 style="text-align: center"><span style="color: #ffffff;font-size: 52px;line-height: 62px;font-weight: bold">{{system.company.notice_title}}</span></h1>
+                    <p><img class="aligncenter" src="{% static 'upload/line.png' %}" alt="&quot;img" /></p>
+                    <p style="text-align: center"><span style="font-size: 16px;line-height: 26px;color: #ffffff">{{system.company.notice_content}}</span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class='container page-full-width'>
+        <!-- content start -->
+        <div id="nz-content" class='content nz-clearfix padding-true'>
+            <!-- post start -->
+            <div id="post-1438" class="post-1438 page type-page status-publish hentry">
+                <section class="page-content nz-clearfix">
+                    <div class="nz-section horizontal animate-false full-width-true " data-animation-speed="35000" data-parallax="false" style="padding-top:20px;padding-bottom:20px;">
+                        <div class="container">
+                            <div class="nz-row">
+                                <div class="col col12  col-animate-true" data-align="left" >
+                                    <div class="col-inner" style="">
+                                        <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_double vc_sep_pos_align_center vc_sep_color_grey extra-separator">
+                                            <span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+                                            <h4>公司大事记</h4> <span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+                                        </div>
+
+                                        <div class='gap nz-clearfix' style='height:25px'>&nbsp;</div>
+                                        <div class="nz-tabs  vertical">
+                                            <div class="tabset nz-clearfix">
+                                                {% for company_history in company_histories %}
+                                                <span class="tab">{{company_history.title}}</span>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="tabs-container">
+                                                {% for company_history in company_histories %}
+                                                <div id="tab-1424349905370-3-{{forloop.counter}}" class="tab-content">
+                                                    <img class="alignleft size-full wp-image-1444 " src="{{MEDIA_URL}}{{ company_history.image }}" alt="1444" width="305" height="221">
+                                                    <div style="" class="nz-column-text nz-clearfix">{{ company_history.desc }}</div>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nz-section horizontal animate-false full-width-true " data-animation-speed="35000" data-parallax="false" style="background-color:#f9f9f9;padding-top:100px;padding-bottom:50px;">
+                        <div class="container">
+                            <div class="nz-row">
+                                <div class="col col12  col-animate-false" data-align="left" >
+                                    <div class="col-inner" style="">
+                                        <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_double vc_sep_pos_align_center vc_sep_color_grey extra-separator">
+                                            <span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+                                            <h4>精英团队</h4> <span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+                                        </div>
+
+                                        <div class='gap nz-clearfix' style='height:25px'>&nbsp;</div>
+                                        <div id="nz-persons-1" class="nz-persons nz-clearfix scale" data-columns="4">
+                                            {% for employee in employees %}
+                                            <div class="person ">
+                                                <div class="person-wrap">
+                                                    <div class="person-inner">
+                                                        <div class="person-body">
+                                                            <a href="#">
+                                                                <div class="img">
+                                                                    <div class="ninzio-overlay">
+                                                                        <div class="ovhover"></div>
+                                                                    </div><img src="{{MEDIA_URL}}{{ employee.image }}" alt="{{employee.name}}" /></div>
+                                                            </a>
+                                                            <div class="person-meta">
+                                                                <div class="name">
+                                                                    <h4>{{employee.name}}</h4></div>
+                                                                <div class="title">{{employee.position}}</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="social-links">
+                                                            <a class="icon-twitter" href="#" title="twitter"></a>
+                                                            <a class="icon-facebook" href="#" title="facebook"></a>
+                                                            <a class="icon-googleplus" href="#" title="googleplus"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nz-section horizontal animate-false full-width-false " data-animation-speed="35000" data-parallax="false" style="">
+                        <div class="nz-row">
+                            <div class="col col12  col-animate-false" data-align="left" >
+                                <div class="col-inner" style="">
+                                    <div id="nz-tagline-2-1" class="nz-tagline-2">
+                                        <div class="container nz-clearfix">
+                                            <span class="tagline-title" style=color:#ffffff;>欢迎大家访问，如有疑问，请留言</span><a href="#" class="button animate-false medium button-ghost round">留言</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nz-section horizontal animate-false full-width-true " data-animation-speed="35000" data-parallax="false" style="padding-top:50px;padding-bottom:75px;">
+                        <div class="container">
+                            <div class="nz-row">
+                                <div class="col col12  col-animate-true" data-align="left" >
+                                    <div class="col-inner" style="">
+                                        <div id="nz-clients-1" class="nz-clients none" data-columns="5" data-autoplay="true">
+                                            {% for friendly in friendly_links %}
+                                            <div class="client">
+                                                <div class="client-inner">
+                                                    <a href="{{friendly.url}}" target="_blank"><img src="{{MEDIA_URL}}{{ friendly.logo }}" alt="{{friendly.name}}"></a>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+{#                                            <div class="client">#}
+{#                                                <div class="client-inner">#}
+{#                                                    <a href="#" target="_blank"><img src="{% static 'upload/logo2.png' %}" alt="Company name"></a>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="client">#}
+{#                                                <div class="client-inner">#}
+{#                                                    <a href="#" target="_blank"><img src="{% static 'upload/logo3.png' %}" alt="Company name"></a>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="client">#}
+{#                                                <div class="client-inner">#}
+{#                                                    <a href="#" target="_blank"><img src="{% static 'upload/logo4.png' %}" alt="Company name"></a>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="client">#}
+{#                                                <div class="client-inner">#}
+{#                                                    <a href="#" target="_blank"><img src="{% static 'upload/logo5.png' %}" alt="Company name"></a>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="client">#}
+{#                                                <div class="client-inner">#}
+{#                                                    <a href="#" target="_blank"><img src="{% static 'upload/logo3.png' %}" alt="Company name"></a>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="client">#}
+{#                                                <div class="client-inner">#}
+{#                                                    <a href="#" target="_blank"><img src="{% static 'upload/logo4.png' %}" alt="Company name"></a>#}
+{#                                                </div>#}
+{#                                            </div>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- post end -->
+        </div>
+        <!-- content end -->
+    </div>
+{% endblock %}

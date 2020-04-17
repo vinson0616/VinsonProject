@@ -43,31 +43,20 @@ class Banner(models.Model):
         return self.title
 
 
-class SystemSetting(models.Model):
+class Navigation(models.Model):
     """
-    系统的一些配置
+    导航栏
     """
-    company_name = models.CharField(max_length=100, default="Vinson管理系统",verbose_name="公司名称")
-    logo = models.ImageField(upload_to="logo/", null=True, blank=True, verbose_name="公司logo", max_length=100)
-    show = models.BooleanField(default=True, verbose_name="是否显示")
-    box1_title = models.CharField(max_length=20, verbose_name="宣传1标题", null=True,blank=True)
-    box1_desc = models.TextField(max_length=60, verbose_name="宣传1简述", null=True, blank=True)
-    box1_url = models.CharField(max_length=60, verbose_name="宣传1链接地址", null=True, blank=True)
-    box2_title = models.CharField(max_length=20, verbose_name="宣传2标题", null=True, blank=True)
-    box2_desc = models.TextField(max_length=60, verbose_name="宣传2简述", null=True, blank=True)
-    box2_url = models.CharField(max_length=60, verbose_name="宣传2链接地址", null=True, blank=True)
-    box3_title = models.CharField(max_length=20, verbose_name="宣传3标题", null=True, blank=True)
-    box3_desc = models.TextField(max_length=60, verbose_name="宣传3简述", null=True, blank=True)
-    box3_url = models.CharField(max_length=60, verbose_name="宣传3链接地址", null=True, blank=True)
-    box4_title = models.CharField(max_length=20, verbose_name="宣传4标题", null=True, blank=True)
-    box4_desc = models.TextField(max_length=60, verbose_name="宣传4简述", null=True, blank=True)
-    box4_url = models.CharField(max_length=60, verbose_name="宣传4链接地址", null=True, blank=True)
+    name = models.CharField(max_length=100, verbose_name="名称")
+    url = models.CharField(max_length=100, verbose_name="Url")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:
-        verbose_name = "系统设置"
+        verbose_name = "导航栏"
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.company_name
+        return self.name
+
+
 

@@ -32,4 +32,7 @@ urlpatterns = [
 
     # 用户 相关url配置
     path("users/", include('users.urls', namespace="users")),
+
+    # 公司 相关url配置
+    path("company/", include('companys.urls', namespace="companys")),
 ]

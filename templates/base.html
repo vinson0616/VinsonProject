@@ -37,7 +37,7 @@
 
                     <div class="logo logo-mob">
                         <a href="#" title="Mobilz &#8211; Multipurpose HTML Them">
-                            <img style="max-width:149px;max-height:36px;" src="{{MEDIA_URL}}{{ system.logo }}" alt="Mobilz &#8211; Multipurpose Wordpress Them">
+                            <img style="max-width:149px;max-height:36px;" src="{{MEDIA_URL}}{{ system.company.logo }}" alt="Mobilz &#8211; Multipurpose Wordpress Them">
                         </a>
                     </div>
 
@@ -61,10 +61,9 @@
 
                 <nav class="header-menu mob-menu nz-clearfix">
                     <ul id="mob-header-menu" class="menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="Shop.html">shop</a></li>
+                        {% for navigation in system.navigations %}
+                        <li><a href="{% url navigation.url %}">{{navigation.name}}</a></li>
+                        {% endfor %}
                     </ul>
                 </nav>
 
@@ -92,23 +91,21 @@
                     <div class="header-cont">
 
                         <div class="logo logo-desk">
-                            <a href="index.html" title="Mobilz &#8211; Multipurpose HTML Them">
-                                <img style="max-width:149px;max-height:36px;" src="{{MEDIA_URL}}{{ system.logo }}" alt="Mobilz &#8211; Multipurpose HTML Them">
+                            <a href="{% url 'index' %}" title="Mobilz &#8211; Multipurpose HTML Them">
+                                <img style="max-width:149px;max-height:36px;" src="{{MEDIA_URL}}{{ system.company.logo }}" alt="Mobilz &#8211; Multipurpose HTML Them">
                             </a>
                         </div>
 
                         <div class="logo logo-fixed">
-                            <a href="index.html" title="Mobilz &#8211; Multipurpose HTML Them">
-                                <img style="max-width:149px;max-height:36px;" src="{{MEDIA_URL}}{{ system.logo }}" alt="Mobilz &#8211; Multipurpose HTML Them">
+                            <a href="{% url 'index' %}" title="Mobilz &#8211; Multipurpose HTML Them">
+                                <img style="max-width:149px;max-height:36px;" src="{{MEDIA_URL}}{{ system.company.logo }}" alt="Mobilz &#8211; Multipurpose HTML Them">
                             </a>
                         </div>
                         <nav class="header-menu desk-menu nz-clearfix">
                             <ul  class="menu">
-                                <li><a href="index.html">首页</a></li>
-                                <li><a href="about.html">关于我们</a></li>
-                                <li><a href="services.html">建设项目</a></li>
-                                <li><a href="Shop.html">新闻动态</a></li>
-                                <li><a href="Shop.html">解决方案</a></li>
+                                {% for navigation in system.navigations %}
+                                <li><a href="{% url navigation.url %}">{{navigation.name}}</a></li>
+                                {% endfor %}
                             </ul>
                         </nav>
 
@@ -119,9 +116,9 @@
 
         </header>
 
-    {% block content %}
+        {% block content %}
 
-{% endblock %}
+        {% endblock %}
         <!-- footer start -->
         <footer class='footer'>
             <a class="icon-arrow-up7" id="top" href="#wrap"></a>
@@ -129,17 +126,20 @@
                 <div class="container nz-clearfix">
                     <div class="nz-row">
                         <div id="text-2" class="widget widget_text">
-                            <div class="textwidget"><img src="{% static 'upload/logo_white.png' %}" alt="Kapital">
+                            <div class="textwidget"><img src="{{MEDIA_URL}}{{ system.company.logo }}" alt="Kapital">
                                 <div class='gap nz-clearfix' style='height:25px'>&nbsp;</div>
-                                We Create awesome wordpress themes. Multipurpose Wordpress theme with tons of options and features to create any website you need for business..
+                                {{ system.company.company_desc }}
                                 <div class='gap nz-clearfix' style='height:25px'>&nbsp;</div>
-                                Mirum est notare quam littera gothica, quam nunc putamus parum claram duis dolore te feugait nulla facilisi
-                                <div class='gap nz-clearfix' style='height:25px'>&nbsp;</div>
-                                <div class="nz-sl social-links nz-clearfix left"><a class="icon-facebook" href="#" target="_self"><span class="bubble">facebook</span></a><a class="icon-twitter" href="#" target="_self"><span class="bubble">twitter</span></a><a class="icon-googleplus" href="#" target="_self"><span class="bubble">googleplus</span></a><a class="icon-youtube" href="#" target="_self"><span class="bubble">youtube</span></a><a class="icon-flickr" href="#" target="_self"><span class="bubble">flickr</span></a></div>
+                                <div class="nz-sl social-links nz-clearfix left">
+                                    <a class="icon-facebook" href="#" target="_self">
+                                        <span class="bubble">Wechat</span></a>
+                                    <a class="icon-twitter" href="#" target="_self">
+                                        <span class="bubble">QQ</span></a>
+                                </div>
                             </div>
                         </div>
                         <div id="twitter-2" class="widget widget_twitter">
-                            <h6 class="widget_title">Recent Tweets</h6>
+                            <h6 class="widget_title">最近公告</h6>
                             <div class="twitter">
                                 <ul>
                                     <li>
@@ -157,7 +157,7 @@
 
                         </div>
                         <div id="nz-recent-posts-2" class="widget widget_nz_recent_entries">
-                            <h6 class="widget_title">Recent posts</h6>
+                            <h6 class="widget_title">最近新闻</h6>
                             <ul>
                                 <li>
                                     <a class="nz-more" href="#">
@@ -198,17 +198,17 @@
                             </ul>
                         </div>
                         <div id="text-3" class="widget widget_text">
-                            <h6 class="widget_title">Contact Us</h6>
+                            <h6 class="widget_title">联系我们</h6>
                             <div class="textwidget">
                                 <div role="form" class="wpcf7" id="wpcf7-f4-o1" dir="ltr">
                                     <div class="screen-reader-response"></div>
                                     <form id="contact-form" action="#">
 
                                         <p><span class="wpcf7-form-control-wrap your-name">
-											<input name="name" id="name" type="text" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Name" /></span><span class="wpcf7-form-control-wrap your-email">
-											<input name="mail" id="mail" type="text"  value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email" aria-invalid="false" placeholder="E-mail" /></span><span class="wpcf7-form-control-wrap your-message">
-											<textarea name="comment" id="comment" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message"></textarea></span>
-                                            <input type="submit" value="Send"  id="submit_contact">
+											<input name="name" id="name" type="text" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="姓名" /></span><span class="wpcf7-form-control-wrap your-email">
+											<input name="mail" id="mail" type="text"  value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email" aria-invalid="false" placeholder="手机号码" /></span><span class="wpcf7-form-control-wrap your-message">
+											<textarea name="comment" id="comment" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="内容"></textarea></span>
+                                            <input type="submit" value="提交"  id="submit_contact">
                                         </p>
                                     </form>
                                 </div>
@@ -222,21 +222,16 @@
                     <div class="social-links">
                         <a class="icon-facebook5" href="#" title="facebook" target="_blank"></a>
                         <a class="icon-twitter4" href="#" title="twitter" target="_blank"></a>
-                        <a class="icon-googleplus6" href="#" title="google" target="_blank"></a>
-                        <a class="icon-youtube2" href="#" title="youtube" target="_blank"></a>
-                        <a class="icon-instagram" href="#" title="instagram" target="_blank"></a>
                     </div>
                     <nav class="footer-menu nz-clearfix">
                         <ul id="footer-menu" class="menu">
-                            <li id="menu-item-141" class="menu-item-141"><a href="#">Home</a></li>
-                            <li id="menu-item-142" class="menu-item-142"><a href="#">About Us</a></li>
-                            <li id="menu-item-143" class="menu-item-143"><a href="#">Services</a></li>
-                            <li id="menu-item-145" class="menu-item-145"><a href="#">Portfolio</a></li>
-                            <li id="menu-item-144" class="menu-item-144"><a href="#">Contact Us</a></li>
+                            {% for navigation in system.navigations %}
+                            <li id="menu-item-141" class="menu-item-141"><a href="{% url navigation.url %}">{{navigation.name}}</a></li>
+                            {% endfor %}
                         </ul>
                     </nav>
                     <div class="footer-info">
-                        <span style="font-size:14px">© Mobilz  - Created with <span style="color: #00a388">♥</span> by Ninzio</span>
+                        <span style="font-size:14px">© {{system.company.footer_desc}}<span style="color: #00a388">♥</span></span>
                     </div>
                 </div>
             </div>
@@ -265,10 +260,9 @@
     <div id="nav_menu-2" class="widget widget_nav_menu">
         <div class="menu-header-menu-container">
             <ul  class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Shop.html">shop</a></li>
+                {% for navigation in system.navigations %}
+                <li><a href="{% url navigation.url %}">{{navigation.name}}</a></li>
+                {% endfor %}
             </ul>
         </div>
     </div>

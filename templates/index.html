@@ -1,8 +1,8 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
-{% block title %}{{ system.company_name }}{% endblock %}
+{% block title %}{{ system.company.company_name }}{% endblock %}
 {% block content %}
-     <!-- 轮播图 -->
+    <!-- 轮播图 -->
     <div id="ninzio-slider" data-autoheight="false" data-arrow="false" data-parallax="false" data-fixed="false" data-transition="fade" data-layout="wide" data-height="560" data-mobile="true" data-autoplaydelay="9000" data-autoplay="true" data-bullets="true" data-arrows="true">
         <div class="slider-loader">&nbsp;</div>
         <div id="slider-arrow" data-target="#nz-content" class="i-separator animate nz-clearfix"><i class="icon-arrow-down8"></i></div>
@@ -51,82 +51,6 @@
                 </li>
             {% endfor %}
 
-            {#				<li class="post-1383 ninzio-slider type-ninzio-slider status-publish hentry" data-video="false" id="post-1383">#}
-            {##}
-            {#					<div class="slider-canvas container">#}
-            {##}
-            {#						<div id="ninzio-layer-1383-1" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="105">#}
-            {#							<div class="layer-wrap">#}
-            {#								<h2><span style="font-size: 52px; line-height: 62px; color: #70878f;">Welcome to</span></h2>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#						<div id="ninzio-layer-1383-2" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="170">#}
-            {#							<div class="layer-wrap">#}
-            {#								<p><span style="font-size: 56px; line-height: 66px; color: #00a388; font-weight: 900;">MOBILZ THEME</span></p>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#						<div id="ninzio-layer-1383-3" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="260">#}
-            {#							<div class="layer-wrap">#}
-            {#								<div data-id="nz-colorbox-2" class="nz-colorbox nz-clearfix" style="width:450px;">#}
-            {#									<p><span style="font-size: 18px; line-height: 28px; color: #333333; font-weight: 300;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat  legentis in dynamicus</span></p>#}
-            {#								</div>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#						<div id="ninzio-layer-1383-4" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="640" data-posy="380">#}
-            {#							<div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">Purchase now</span></a>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#						<div id="ninzio-layer-1383-5" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="820" data-posy="380">#}
-            {#							<div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">More detailes</span></a>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#					</div>#}
-            {##}
-            {#				</li>#}
-            {##}
-            {#				<li class="post-1386 ninzio-slider type-ninzio-slider status-publish hentry" data-video="false" id="post-1386">#}
-            {##}
-            {#					<div class="slider-canvas container">#}
-            {##}
-            {#						<div id="ninzio-layer-1386-1" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="245" data-posy="115">#}
-            {#							<div class="layer-wrap">#}
-            {#								<h2 style="text-align: center;"><span style="font-size: 52px; line-height: 62px; color: #70878f;">Create new business website</span></h2>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#						<div id="ninzio-layer-1386-2" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="212" data-posy="180">#}
-            {#							<div class="layer-wrap">#}
-            {#								<p style="text-align: center;"><span style="font-size: 56px; line-height: 66px; color: #00a388; font-weight: 900;">IN MINUTES WITH MOBILZ</span></p>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#						<div id="ninzio-layer-1386-3" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="300" data-posy="270">#}
-            {#							<div class="layer-wrap">#}
-            {#								<div data-id="nz-colorbox-3" class="nz-colorbox nz-clearfix" style="width:570px;">#}
-            {#									<p style="text-align: center;"><span style="font-size: 18px; line-height: 28px; color: #333333; font-weight: 300;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat  legentis.</span></p>#}
-            {#								</div>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#						<div id="ninzio-layer-1386-4" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="410" data-posy="370">#}
-            {#							<div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">Purchase now</span></a>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#						<div id="ninzio-layer-1386-5" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="590" data-posy="370">#}
-            {#							<div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">More detailes</span></a>#}
-            {#							</div>#}
-            {#						</div>#}
-            {##}
-            {#					</div>#}
-            {##}
-            {#				</li>#}
-
         </ul>
 
     </div>
@@ -142,50 +66,19 @@
                                 <div class="col col12  col-animate-false" data-align="left" >
                                     <div class="col-inner" style="">
                                         <div class="nz-content-box nz-clearfix v1 scale" data-columns="4">
-                                            <div id="nz-box-1" class="back-active  border-active  nz-box">
+                                            {% for big_circle in big_circle_items %}
+                                            <div id="nz-box-{{forloop.counter}}" class="back-active  border-active  nz-box">
                                                 <a href="#">
                                                     <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-busy"></div>
+                                                        <div class="box-icon {{big_circle.icon}}"></div>
                                                     </div>
                                                     <div class="box-data" >
-                                                        <h4 style="text-align: center;">{{ system.box1_title }}</h4>
-                                                        <p style="text-align: center;">{{ system.box1_desc }}</p>
+                                                        <h4 style="text-align: center;">{{ big_circle.title }}</h4>
+                                                        <p style="text-align: center;">{{ big_circle.desc }}</p>
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div id="nz-box-2" class="back-active  border-active  nz-box">
-                                                <a href="#">
-                                                    <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-key"></div>
-                                                    </div>
-                                                    <div class="box-data">
-                                                        <h4 style="text-align: center;">{{ system.box2_title }}</h4>
-                                                        <p style="text-align: center;">{{ system.box2_desc }}</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div id="nz-box-3" class="back-active  border-active  nz-box">
-                                                <a href="#">
-                                                    <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-users2"></div>
-                                                    </div>
-                                                    <div class="box-data">
-                                                        <h4 style="text-align: center;">{{ system.box3_title }}</h4>
-                                                        <p style="text-align: center;">{{ system.box3_desc }}</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div id="nz-box-4" class="back-active  border-active  nz-box">
-                                                <a href="#">
-                                                    <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-attachment"></div>
-                                                    </div>
-                                                    <div class="box-data">
-                                                        <h4 style="text-align: center;">{{ system.box4_title }}</h4>
-                                                        <p style="text-align: center;">{{ system.box4_desc }}</p>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -217,142 +110,25 @@
                                 <div class="col-inner" style="">
                                     <div id="nz-recent-portfolio-1" data-animate="true" data-autoplay="false" data-columns="4" class="lazy nz-recent-portfolio details-false nogap-false carousel filter-false nz-clearfix grid_4">
                                         <div class="nz-portfolio-posts">
-                                            <div class="mix post nz-clearfix" data-groups='["all", "graphic-design", "multimedia"]' data-grid="ninzio_01">
-                                                <div class="post-wrap">
-                                                    <div class="post-inner">
-                                                        <div class="post-body">
-                                                            <div class="nz-thumbnail"><img width="640" height="540" src="{% static 'upload/portfolio14-640x540.jpg' %}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio1" />
-                                                                <div class="ninzio-overlay">
-                                                                    <div class="ovhover">
-                                                                        <div class="overlay-content">
-                                                                            <h3 class="project-title">Solo Map Icon Design</h3>
-                                                                            <br><a class="button button-normal small round animate-false hover-fill" href="#">View project</a></div>
+                                            {% for product in products %}
+                                                <div class="mix post nz-clearfix" data-groups='["all", "graphic-design", "multimedia"]' data-grid="ninzio_01">
+                                                    <div class="post-wrap">
+                                                        <div class="post-inner">
+                                                            <div class="post-body">
+                                                                <div class="nz-thumbnail"><img width="640" height="540" src="{{MEDIA_URL}}{{ product.image }}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio1" />
+                                                                    <div class="ninzio-overlay">
+                                                                        <div class="ovhover">
+                                                                            <div class="overlay-content">
+                                                                                <h3 class="project-title">{{product.name}}</h3>
+                                                                                <br><a class="button button-normal small round animate-false hover-fill" href="#">查看详情</a></div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="mix post nz-clearfix" data-groups='["all", "copyright", "marketing"]' data-grid="ninzio_01">
-                                                <div class="post-wrap">
-                                                    <div class="post-inner">
-                                                        <div class="post-body">
-                                                            <div class="nz-thumbnail"><img width="640" height="540" src="{% static 'upload/portfolio8-640x540.jpg' %}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio8" />
-                                                                <div class="ninzio-overlay">
-                                                                    <div class="ovhover">
-                                                                        <div class="overlay-content">
-                                                                            <h3 class="project-title">Lovely Girl Photo</h3>
-                                                                            <br><a class="button button-normal small round animate-false hover-fill" href="#">View project</a></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mix post nz-clearfix" data-groups='["all", "copyright", "web-design"]' data-grid="ninzio_01">
-                                                <div class="post-wrap">
-                                                    <div class="post-inner">
-                                                        <div class="post-body">
-                                                            <div class="nz-thumbnail"><img width="640" height="540" src="{% static 'upload/portfolio3-2-640x540.jpg' %}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio3-2" />
-                                                                <div class="ninzio-overlay">
-                                                                    <div class="ovhover">
-                                                                        <div class="overlay-content">
-                                                                            <h3 class="project-title">Progress Bar Look</h3>
-                                                                            <br><a class="button button-normal small round animate-false hover-fill" href="#">View project</a></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mix post nz-clearfix" data-groups='["all", "copyright", "multimedia"]' data-grid="ninzio_01">
-                                                <div class="post-wrap">
-                                                    <div class="post-inner">
-                                                        <div class="post-body">
-                                                            <div class="nz-thumbnail"><img width="640" height="540" src="{% static 'upload/portfolio6-640x540.jpg' %}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio6" />
-                                                                <div class="ninzio-overlay">
-                                                                    <div class="ovhover">
-                                                                        <div class="overlay-content">
-                                                                            <h3 class="project-title">User Login Form</h3>
-                                                                            <br><a class="button button-normal small round animate-false hover-fill" href="#">View project</a></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mix post nz-clearfix" data-groups='["all", "graphic-design", "seo"]' data-grid="ninzio_01">
-                                                <div class="post-wrap">
-                                                    <div class="post-inner">
-                                                        <div class="post-body">
-                                                            <div class="nz-thumbnail"><img width="640" height="540" src="{% static 'upload/portfolio7-640x540.jpg' %}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio7" />
-                                                                <div class="ninzio-overlay">
-                                                                    <div class="ovhover">
-                                                                        <div class="overlay-content">
-                                                                            <h3 class="project-title">Very Happy Girl Photo</h3>
-                                                                            <br><a class="button button-normal small round animate-false hover-fill" href="#">View project</a></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mix post nz-clearfix" data-groups='["all", "marketing", "seo"]' data-grid="ninzio_01">
-                                                <div class="post-wrap">
-                                                    <div class="post-inner">
-                                                        <div class="post-body">
-                                                            <div class="nz-thumbnail"><img width="640" height="540" src="{% static 'upload/portfolio91-640x540.jpg' %}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio large" />
-                                                                <div class="ninzio-overlay">
-                                                                    <div class="ovhover">
-                                                                        <div class="overlay-content">
-                                                                            <h3 class="project-title">Single Button Video</h3>
-                                                                            <br><a class="button button-normal small round animate-false hover-fill" href="#">View project</a></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mix post nz-clearfix" data-groups='["all", "multimedia", "web-design"]' data-grid="ninzio_01">
-                                                <div class="post-wrap">
-                                                    <div class="post-inner">
-                                                        <div class="post-body">
-                                                            <div class="nz-thumbnail"><img width="640" height="540" src="{% static 'upload/portfolio10-640x540.jpg' %}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio10" />
-                                                                <div class="ninzio-overlay">
-                                                                    <div class="ovhover">
-                                                                        <div class="overlay-content">
-                                                                            <h3 class="project-title">Terrible Design Video</h3>
-                                                                            <br><a class="button button-normal small round animate-false hover-fill" href="#">View project</a></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mix post nz-clearfix" data-groups='["all", "marketing", "web-design"]' data-grid="ninzio_01">
-                                                <div class="post-wrap">
-                                                    <div class="post-inner">
-                                                        <div class="post-body">
-                                                            <div class="nz-thumbnail"><img width="640" height="540" src="{% static 'upload/portfolio11-640x540.jpg' %}" class="attachment-Ninzio-Uni wp-post-image" alt="portfolio11" />
-                                                                <div class="ninzio-overlay">
-                                                                    <div class="ovhover">
-                                                                        <div class="overlay-content">
-                                                                            <h3 class="project-title">Chat Buttons Gallery</h3>
-                                                                            <br><a class="button button-normal small round animate-false hover-fill" href="#">View project</a></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -377,72 +153,19 @@
                                 <div class="col col12  col-animate-true" data-align="left">
                                     <div class="col-inner" style="">
                                         <div class="nz-content-box nz-clearfix v2 scale" data-columns="3">
-                                            <div id="nz-box-5" class="back-active  border-active  nz-box">
+                                            {% for small_circle in small_circle_items %}
+                                            <div id="nz-box-{{ forloop.counter|add:4 }}" class="back-active  border-active  nz-box">
                                                 <a href="#">
                                                     <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-busy"></div>
+                                                        <div class="box-icon {{small_circle.icon}}"></div>
                                                     </div>
                                                     <div class="box-data">
-                                                        <h4 style="text-align: left;">新闻动态</h4>
-                                                        <p style="text-align: left;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip placerat facer.</p>
+                                                        <h4 style="text-align: left;">{{small_circle.title}}</h4>
+                                                        <p style="text-align: left;">{{small_circle.desc}}</p>
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div id="nz-box-6" class="back-active  border-active  nz-box">
-                                                <a href="#">
-                                                    <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-lab"></div>
-                                                    </div>
-                                                    <div class="box-data">
-                                                        <h4 style="text-align: left;">人才招聘</h4>
-                                                        <p style="text-align: left;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip placerat facer.</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div id="nz-box-7" class="back-active  border-active  nz-box">
-                                                <a href="#">
-                                                    <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-users2"></div>
-                                                    </div>
-                                                    <div class="box-data">
-                                                        <h4 style="text-align: left;">通知公告</h4>
-                                                        <p style="text-align: left;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip placerat facer.</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div id="nz-box-8" class="back-active  border-active  nz-box">
-                                                <a href="#">
-                                                    <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-attachment"></div>
-                                                    </div>
-                                                    <div class="box-data">
-                                                        <h4 style="text-align: left;">工程案例</h4>
-                                                        <p style="text-align: left;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip placerat facer.</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div id="nz-box-9" class="back-active  border-active  nz-box">
-                                                <a href="#">
-                                                    <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-print"></div>
-                                                    </div>
-                                                    <div class="box-data">
-                                                        <h4 style="text-align: left;">在线留言</h4>
-                                                        <p style="text-align: left;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip placerat facer.</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div id="nz-box-10" class="back-active  border-active  nz-box">
-                                                <a href="#">
-                                                    <div class="box-icon-wrap">
-                                                        <div class="box-icon icon-drawer3"></div>
-                                                    </div>
-                                                    <div class="box-data">
-                                                        <h4 style="text-align: left;">联系我们</h4>
-                                                        <p style="text-align: left;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip placerat facer.</p>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -458,16 +181,11 @@
                                         <div class='gap nz-clearfix' style='height:75px'>&nbsp;</div>
                                         <div id="nz-testimonials-1" class="lazy flexslider nz-testimonials">
                                             <ul class="slides">
-                                                <li class="testimonial" data-img="{% static 'upload/testimonial1.jpg' %}">
-                                                    <div class="text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros ” accumsan et iusto odio dignissi. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta</div><span class="name">Alexandra Smart</span><span class="title">International Systems</span></li>
-                                                <li class="testimonial" data-img="{% static 'upload/testimonial2.jpg' %}">
-                                                    <div class="text">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</div><span class="name">Michael Smart</span><span class="title">Developmnet</span></li>
-                                                <li class="testimonial" data-img="{% static 'upload/testimonial3.jpg' %}">
-                                                    <div class="text">Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</div><span class="name">Anna Smart</span><span class="title">HR director</span></li>
-                                                <li class="testimonial" data-img="{% static 'upload/testimonial4.jpg' %}">
-                                                    <div class="text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi investigationes demonstraverunt.</div><span class="name">Michael Smart</span><span class="title">International Systems</span></li>
-                                                <li class="testimonial" data-img="{% static 'upload/testimonial5.jpg' %}">
-                                                    <div class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi</div><span class="name">John Smith</span><span class="title">Development</span></li>
+                                                {% for employee in employees %}
+                                                    <li class="testimonial" data-img="{{MEDIA_URL}}{{ employee.image }}">
+                                                        <div class="text">{{employee.desc}}</div><span class="name">{{employee.name}}</span><span class="title">{{employee.position}}</span></li>
+                                                {% endfor %}
+
                                             </ul>
                                         </div>
                                     </div>
