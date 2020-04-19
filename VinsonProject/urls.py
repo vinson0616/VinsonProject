@@ -35,4 +35,7 @@ urlpatterns = [
 
     # 公司 相关url配置
     path("company/", include('companys.urls', namespace="companys")),
+
+    # 产品 相关url配置
+    path("products/", include('products.urls', namespace="products")),
 ]

@@ -1,0 +1,112 @@
+{% extends 'other-base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}{% endblock %}
+{% block custom_css %}
+    <link rel='stylesheet' href='{% static 'css/products-detail.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{% static 'css/pagination.css' %}' type='text/css' media='all' />
+
+
+{% endblock %}
+{% block content %}
+    <div class="shop-layout-wrap rh-true medium">
+        <div class="loop width-false">
+            <div class="container">
+                <section class="content lazy shop-layout animation-true medium nz-clearfix">
+
+                    <div class="course-content">
+                        <div class="course-nav-box">
+                            <div class="course-nav-row clearfix">
+                                <span class="hd l">方向：</span>
+                                <div class="bd">
+                                    <ul class="">
+                                        <li class="course-nav-item {% ifequal p_id -1 %}on{% endifequal %}">
+                                            <a class="course-nav-row-header-nav" href="?p_id=-1&c_id=-1">全部</a>
+                                        </li>
+                                        {% for parent_category in parent_categories %}
+                                            <li class="course-nav-item {% ifequal p_id parent_category.id %}on{% endifequal %}">
+                                                <a class="course-nav-row-header-nav" href="?p_id={{ parent_category.id }}&c_id=-1">{{parent_category.name}}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="course-nav-row course-nav-skills clearfix">
+                                <div class="js-course-skills course-skills-box">
+                                    <span class="hd l">分类：</span>
+                                    <div class="bd">
+                                        <ul class="">
+                                            <li class="course-nav-item {% ifequal c_id -1 %}on{% endifequal %}">
+                                                <a href="?p_id={{ p_id }}&c_id=-1">全部</a>
+                                            </li>
+                                            {% for child_category in child_categories %}
+                                                <li class="course-nav-item {% ifequal c_id child_category.id %}on{% endifequal %}">
+                                                    <a href="?p_id={{ child_category.parent_category.id }}&c_id={{ child_category.id }}">{{child_category.name}}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1 class="page-title">产品展示</h1>
+
+                    <p class="woocommerce-result-count">
+                        总条数: {{total}}</p>
+                    <form class="woocommerce-ordering" method="get">
+                        <select name="orderby" class="orderby">
+                            <option value="new">最新</option>
+                        </select>
+                    </form>
+
+                    <ul class="products">
+                        {% for product in products.object_list %}
+                            <li class="first post-1297 product type-product status-publish has-post-thumbnail product_cat-bags product_cat-clothing product_cat-necklaces product_cat-shoes product_cat-tunics product_tag-boom product_tag-popular product_tag-sales sale featured shipping-taxable purchasable product-type-simple product-cat-bags product-cat-clothing product-cat-necklaces product-cat-shoes product-cat-tunics product-tag-boom product-tag-popular product-tag-sales instock">
+
+                                <div class="product-wrap" >
+                                    <div class="product-body" >
+                                        <div class="nz-thumbnail" >
+                                            <img width="570" style="height: 310px;"  height="480" src="{{MEDIA_URL}}{{ product.image }}" class="attachment-shop_catalog wp-post-image" alt="2" />
+
+                                            <div class="ninzio-overlay">
+                                                <div class="overlay-content">
+                                                    <a href="{% url 'products:detail' product.id %}" rel="nofollow" data-product_id="1297" data-product_sku="1311" data-quantity="1" class="button add_to_cart_button product_type_simple">查看详情</a>
+                                                    <div class="shop-loader">&nbsp;</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-det">
+                                            <a href="{% url 'products:detail' product.id %}">
+                                                <span class="onsale">{{product.category.name}}</span>
+                                                <h3>{{product.name}}</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div style="text-align: center">
+                        <div class="pagination">
+                            <a href="?{{ products.previous_page_number.querystring }}"><span class="{% if not products.has_previous %}disabled{% endif %}" title="上一页">上一页</span></a>
+                            {% for page in products.pages %}
+                                {% ifequal page products.number %}
+                                     <a href="?{{ page.querystring }}"><span class="current">{{ page }}</span></a>
+                                    {% else %}
+                                      <a href="?{{ page.querystring }}"><span>{{ page }}</span></a>
+                                {% endifequal %}
+
+                            {% endfor %}
+
+                            <a href="?{{ products.next_page_number.querystring }}">
+                                <span class="{% if not products.has_next %}disabled{% endif %}">下一页</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}

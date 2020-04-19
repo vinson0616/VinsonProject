@@ -1,19 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'other-base.html' %}
 {% load static %}
 {% block title %}{{ system.company.company_name }}{% endblock %}
 {% block content %}
-    <header class="rich-header page-header" data-parallax="true" style="height:300px;background-color:#00a388;">
-        <div class="parallax-container" style="background-image:url({% static 'upload/rich_bg6.jpg' %});background-repeat:no-repeat;background-attachment:scroll;-webkit-background-size: cover;-moz-background-size: cover;background-size: cover;background-position:center top;">&nbsp;</div>
-        <div class="container nz-clearfix">
-            <div class="rich-header-content">
-                <div class="page-title-content">
-                    <h1 style="text-align: center"><span style="color: #ffffff;font-size: 52px;line-height: 62px;font-weight: bold">{{system.company.notice_title}}</span></h1>
-                    <p><img class="aligncenter" src="{% static 'upload/line.png' %}" alt="&quot;img" /></p>
-                    <p style="text-align: center"><span style="font-size: 16px;line-height: 26px;color: #ffffff">{{system.company.notice_content}}</span></p>
-                </div>
-            </div>
-        </div>
-    </header>
     <div class='container page-full-width'>
         <!-- content start -->
         <div id="nz-content" class='content nz-clearfix padding-true'>

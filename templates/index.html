@@ -120,7 +120,7 @@
                                                                         <div class="ovhover">
                                                                             <div class="overlay-content">
                                                                                 <h3 class="project-title">{{product.name}}</h3>
-                                                                                <br><a class="button button-normal small round animate-false hover-fill" href="#">查看详情</a></div>
+                                                                                <br><a class="button button-normal small round animate-false hover-fill" href="{% url 'products:detail' product.id %}">查看详情</a></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -141,7 +141,7 @@
                                 <div class="col-inner" style="">
                                     <div id="nz-tagline-2-1" class="nz-tagline-2">
                                         <div class="container nz-clearfix">
-                                            <span class="tagline-title" style=color:#ffffff;>欢迎你选购嘉绎实业产品，请点击更多查看更多的产品信息.</span><a href="#" class="button animate-false medium button-ghost round">查看所有产品信息</a></div>
+                                            <span class="tagline-title" style=color:#ffffff;>欢迎你选购嘉绎实业产品，请点击更多查看更多的产品信息.</span><a href="{% url 'products:list' %}" class="button animate-false medium button-ghost round">查看所有产品信息</a></div>
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,72 @@
+.course-content {
+    float: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+    box-shadow: none;
+    font: 12px/1 "微软雅黑",Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+}
+.course-nav-row {
+    position: relative;
+    padding: 16px 0 5px;
+    border-bottom: 1px solid #edf1f2;
+}
+.course-nav-row-header-nav {
+      display: block;
+    line-height: 16px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+       color: #07111b;
+       font-weight: 700;
+
+}
+.course-nav-row .hd {
+    width: 60px;
+    height: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #07111b;
+    text-align: left;
+}
+.course-nav-row .bd {
+    margin-left: 50px;
+}
+.course-nav-row ul {
+    list-style: none;
+}
+.course-nav-item {
+    display: inline-block;
+    margin: 0 4px;
+}
+.course-nav-item a {
+    display: block;
+    line-height: 14px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+.course-nav-item.on a {
+    background: rgba(0,163,136,.76);
+    border-radius: 6px;
+    font-weight: 700;
+    color: #FFFFFF!important;
+}
+.course-nav-item a:link, a:visited {
+    color: #1c1f21;
+}
+.l {
+    float: left;
+}
+.course-nav-skills {
+    max-height: 132px;
+}
+.course-skills-box {
+    position: relative;
+    z-index: 1;
+}
+.course-nav-skills .bd {
+    max-height: 132px;
+    overflow: hidden;
+}

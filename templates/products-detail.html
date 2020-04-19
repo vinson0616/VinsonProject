@@ -1,0 +1,47 @@
+{% extends 'other-base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}-产品详情{% endblock %}
+{% block content %}
+    <div class="nz-section horizontal animate-false full-width-true " data-animation-speed="35000" data-parallax="false" style="padding-top:75px;">
+        <div class="container">
+            <div class="nz-row">
+                <div class="col col12  col-animate-false" data-align="left" >
+                    <div class="col-inner" style="">
+                        <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_double vc_sep_pos_align_center vc_sep_color_grey extra-separator">
+                            <span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+                            <h4>【{{product.category.name}} - {{ product.name }}】 产品的详细信息</h4> <span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nz-section horizontal animate-false full-width-true " data-animation-speed="35000" data-parallax="false" style="padding-bottom:50px;">
+        <div class="container">
+            <div class="nz-row">
+                <div class="col col6  col-animate-true" data-align="left" >
+                    <div class="col-inner" style="">
+                        <a class="nz-single-image" href="#"><img class="alignnone size-full wp-image-1483 " src="{{MEDIA_URL}}{{ product.image }}" alt="1483" width="570" height="320"></a>
+                    </div>
+                </div>
+                <div class="col col6  col-animate-true" data-align="left" >
+                    <div class="col-inner" style="">
+                        <div class="nz-tabs  horizontal">
+                            <div class="tabset nz-clearfix">
+                                <span class="tab">{{product.name}}</span>
+                            </div>
+                            <div class="tabs-container">
+                                <div id="tab-1424353456572-1" class="tab-content">
+                                    <div style="" class="nz-column-text nz-clearfix">
+                                        {{ product.detail }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
