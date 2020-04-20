@@ -38,4 +38,7 @@ urlpatterns = [
 
     # 产品 相关url配置
     path("products/", include('products.urls', namespace="products")),
+
+    # 新闻动态 相关url配置
+    path("news/", include('news.urls', namespace="news")),
 ]

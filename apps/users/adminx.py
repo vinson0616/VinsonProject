@@ -8,6 +8,7 @@ from .models import UserProfile, Banner, Navigation
 from companys.models import Company, Employee, CompanyHistory, FriendlyLink
 from products.models import ProductCategory, Product
 from systems.models import CircleItem
+from news.models import News
 
 
 class BaseSetting(object):
@@ -33,6 +34,7 @@ class GlobalSettings(object):
                 {'title': '公司列表', 'url': self.get_model_url(Company, 'changelist')},
                 {'title': '公司大事记', 'url': self.get_model_url(CompanyHistory, 'changelist')},
                 {'title': '员工管理', 'url': self.get_model_url(Employee, 'changelist')},
+                {'title': '新闻动态', 'url': self.get_model_url(News, 'changelist')},
                 {'title': '友情链接', 'url': self.get_model_url(FriendlyLink, 'changelist')},
             )},
             {'title': '首页内容', 'menus': (
@@ -111,6 +113,13 @@ class FriendlyLinkAdmin(object):
     readonly_fields = ['add_time']
 
 
+class NewsAdmin(object):
+    list_display = ['title',  'add_time']
+    search_fields = ['title',  'add_time']
+    list_filter = ['title', 'add_time']
+    readonly_fields = ['add_time']
+
+
 xadmin.site.register(views.CommAdminView, GlobalSettings)
 xadmin.site.register(Banner, BannerAdmin)
 xadmin.site.register(Company, CompanyAdmin)
@@ -121,3 +130,4 @@ xadmin.site.register(Navigation, NavigationAdmin)
 xadmin.site.register(CircleItem, CircleItemAdmin)
 xadmin.site.register(CompanyHistory, CompanyHistoryAdmin)
 xadmin.site.register(FriendlyLink, FriendlyLinkAdmin)
+xadmin.site.register(News, NewsAdmin)

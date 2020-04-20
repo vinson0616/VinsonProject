@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'products',
     'companys',
-    'systems'
+    'systems',
+    'news'
 ]
 
 AUTH_USER_MODEL = "users.UserProfile"
