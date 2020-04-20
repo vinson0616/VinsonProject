@@ -9,6 +9,7 @@ from companys.models import Company, Employee, CompanyHistory, FriendlyLink
 from products.models import ProductCategory, Product
 from systems.models import CircleItem
 from news.models import News
+from jobs.models import Position
 
 
 class BaseSetting(object):
@@ -31,10 +32,11 @@ class GlobalSettings(object):
                 {'title': '用户信息', 'url': self.get_model_url(UserProfile, 'changelist')},
             )},
             {'title': '公司管理', 'menus': (
-                {'title': '公司列表', 'url': self.get_model_url(Company, 'changelist')},
+                {'title': '我的公司', 'url': self.get_model_url(Company, 'changelist')},
                 {'title': '公司大事记', 'url': self.get_model_url(CompanyHistory, 'changelist')},
                 {'title': '员工管理', 'url': self.get_model_url(Employee, 'changelist')},
                 {'title': '新闻动态', 'url': self.get_model_url(News, 'changelist')},
+                {'title': '人才招聘', 'url': self.get_model_url(Position, 'changelist')},
                 {'title': '友情链接', 'url': self.get_model_url(FriendlyLink, 'changelist')},
             )},
             {'title': '首页内容', 'menus': (
@@ -120,6 +122,13 @@ class NewsAdmin(object):
     readonly_fields = ['add_time']
 
 
+class PositionAdmin(object):
+    list_display = ['name','desc','mobile',  'add_time']
+    search_fields = ['name','desc','mobile', 'add_time']
+    list_filter = ['name','desc','mobile',  'add_time']
+    readonly_fields = ['add_time']
+
+
 xadmin.site.register(views.CommAdminView, GlobalSettings)
 xadmin.site.register(Banner, BannerAdmin)
 xadmin.site.register(Company, CompanyAdmin)
@@ -131,3 +140,4 @@ xadmin.site.register(CircleItem, CircleItemAdmin)
 xadmin.site.register(CompanyHistory, CompanyHistoryAdmin)
 xadmin.site.register(FriendlyLink, FriendlyLinkAdmin)
 xadmin.site.register(News, NewsAdmin)
+xadmin.site.register(Position, PositionAdmin)

@@ -41,4 +41,7 @@ urlpatterns = [
 
     # 新闻动态 相关url配置
     path("news/", include('news.urls', namespace="news")),
+
+    # 人才招聘 相关url配置
+    path("jobs/", include('jobs.urls', namespace="jobs")),
 ]

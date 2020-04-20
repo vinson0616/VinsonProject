@@ -31,3 +31,10 @@ class AboutView(View):
             "employees": employees,
             "friendly_links": friendly_links
         })
+
+
+class ContactMeView(View):
+    def get(self, request):
+        return render(request, "contact-me.html",{
+            "system": get_system_info(),
+        })
