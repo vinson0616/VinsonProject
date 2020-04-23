@@ -131,13 +131,13 @@
 
         {% endblock %}
         <!-- footer start -->
-        <footer class='footer'>
+            <footer class='footer'>
             <a class="icon-arrow-up7" id="top" href="#wrap"></a>
             <aside class="footer-widget-area widget-area">
                 <div class="container nz-clearfix">
                     <div class="nz-row">
                         <div id="text-2" class="widget widget_text">
-                            <div class="textwidget"><img src="{{MEDIA_URL}}{{ system.company.logo }}" alt="Kapital">
+                            <div class="textwidget"><img src="{{MEDIA_URL}}{{ system.company.footer_logo }}" alt="Kapital">
                                 <div class='gap nz-clearfix' style='height:25px'>&nbsp;</div>
                                 {{ system.company.company_desc }}
                                 <div class='gap nz-clearfix' style='height:25px'>&nbsp;</div>
@@ -150,62 +150,37 @@
                             </div>
                         </div>
                         <div id="twitter-2" class="widget widget_twitter">
-                            <h6 class="widget_title">最近公告</h6>
+                            <h6 class="widget_title">最近新闻</h6>
                             <div class="twitter">
                                 <ul>
-                                    <li>
-                                        <p>
-                                            If you're struggling to get your image libraries in order, these are the courses for you. https://t.co/7VKxwDcmWv </p>
-                                        <a class="tweet-time" href="#">58 minutes ago </a>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Looking for some ideas for your site? Take a look at this latest from <a class="tweet-author" href="#" target="_blank">@wdtuts</a>' 52 weeks of #webdesign inspiration. https://t.co/C40vXvpy0j </p>
-                                        <a class="tweet-time" href="#">3 hours ago </a>
-                                    </li>
+                                    {% for new in system.news %}
+                                        <li>
+                                            <p>
+                                                {{new.title}} </p>
+                                            <a class="tweet-time" href="{% url 'news:detail' new.id %}">{{new.add_time}} </a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
 
                         </div>
                         <div id="nz-recent-posts-2" class="widget widget_nz_recent_entries">
-                            <h6 class="widget_title">最近新闻</h6>
+                            <h6 class="widget_title">最新产品</h6>
                             <ul>
-                                <li>
-                                    <a class="nz-more" href="#">
-                                        <div class="nz-thumbnail">
-                                            <img width="150" height="150" src="{% static 'upload/blog1-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="blog1" />
-                                            <div class="ninzio-overlay"></div>
+                                {% for product in system.products %}
+                                    <li>
+                                        <a class="nz-more" href="{% url 'products:detail' product.id %}">
+                                            <div class="nz-thumbnail">
+                                                <img width="150" height="150" src="{{MEDIA_URL}}{{ product.image }}" class="attachment-thumbnail wp-post-image" alt="blog1" />
+                                                <div class="ninzio-overlay"></div>
+                                            </div>
+                                        </a>
+                                        <div class="post-body">
+                                            <a class="post-title" href="{% url 'products:detail' product.id %}">{{product.name}}</a>
+                                            <span>{{product.add_time}}</span>
                                         </div>
-                                    </a>
-                                    <div class="post-body">
-                                        <a class="post-title" href="#">Fundamentals of Theme Development and Design</a>
-                                        <span>November 13, 2017</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="nz-more" href="#">
-                                        <div class="nz-thumbnail">
-                                            <img width="150" height="150" src="{% static 'upload/blog2-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="blog2" />
-                                            <div class="ninzio-overlay"></div>
-                                        </div>
-                                    </a>
-                                    <div class="post-body">
-                                        <a class="post-title" href="#">Introducing to WordPress Responsive Mobilz Theme</a>
-                                        <span>November 11, 2017</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="nz-more" href="#">
-                                        <div class="nz-thumbnail">
-                                            <img width="150" height="150" src="{% static 'upload/blog3-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="blog3" />
-                                            <div class="ninzio-overlay"></div>
-                                        </div>
-                                    </a>
-                                    <div class="post-body">
-                                        <a class="post-title" href="#">Welcome to Mobilz Mega Responsive Theme Today</a>
-                                        <span>February 11, 2017</span>
-                                    </div>
-                                </li>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <div id="text-3" class="widget widget_text">
@@ -213,14 +188,15 @@
                             <div class="textwidget">
                                 <div role="form" class="wpcf7" id="wpcf7-f4-o1" dir="ltr">
                                     <div class="screen-reader-response"></div>
-                                    <form id="contact-form" action="#">
+                                    <form id="jsStayForm">
 
                                         <p><span class="wpcf7-form-control-wrap your-name">
-											<input name="name" id="name" type="text" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="姓名" /></span><span class="wpcf7-form-control-wrap your-email">
-											<input name="mail" id="mail" type="text"  value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email" aria-invalid="false" placeholder="手机号码" /></span><span class="wpcf7-form-control-wrap your-message">
-											<textarea name="comment" id="comment" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="内容"></textarea></span>
-                                            <input type="submit" value="提交"  id="submit_contact">
+											<input name="name"  type="text" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="姓名" /></span><span class="wpcf7-form-control-wrap your-email">
+											<input name="mobile" type="text"  value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email" aria-invalid="false" placeholder="手机号码" /></span><span class="wpcf7-form-control-wrap your-message">
+											<textarea name="content" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="内容"></textarea></span>
+                                            <input type="submit" value="提交"  id="jsStayBtn">
                                         </p>
+                                        {% csrf_token %}
                                     </form>
                                 </div>
                             </div>
@@ -230,10 +206,10 @@
             </aside>
             <div class="footer-content">
                 <div class="container nz-clearfix">
-                    <div class="social-links">
-                        <a class="icon-facebook5" href="#" title="facebook" target="_blank"></a>
-                        <a class="icon-twitter4" href="#" title="twitter" target="_blank"></a>
-                    </div>
+{#                    <div class="social-links">#}
+{#                        <a class="icon-facebook5" href="#" title="facebook" target="_blank"></a>#}
+{#                        <a class="icon-twitter4" href="#" title="twitter" target="_blank"></a>#}
+{#                    </div>#}
                     <nav class="footer-menu nz-clearfix">
                         <ul id="footer-menu" class="menu">
                             {% for navigation in system.navigations %}
@@ -254,103 +230,6 @@
     </div>
     <!-- wrap end -->
 </div>
-<!-- general wrap end -->
-
-<!-- Aside MEnu -->
-<aside class="main-widget-area widget-area">
-    <div class="sidebar-close" title="Close sidebar">
-        <span>&nbsp;</span>
-        <span>&nbsp;</span>
-    </div>
-    <div id="text-4" class="widget widget_text">
-        <div class="textwidget">We Create awesome HTML themes. Multipurpose HTML theme with tons of options and features to create any website you need for business..
-            <div class='gap nz-clearfix' style='height:25px'>&nbsp;</div>
-            <div class="nz-sl social-links nz-clearfix left"><a class="icon-facebook" href="#" target="_self"><span class="bubble">facebook</span></a><a class="icon-twitter" href="#" target="_self"><span class="bubble">twitter</span></a><a class="icon-googleplus" href="#" target="_self"><span class="bubble">googleplus</span></a><a class="icon-youtube" href="#" target="_self"><span class="bubble">youtube</span></a><a class="icon-flickr" href="#" target="_self"><span class="bubble">flickr</span></a></div>
-        </div>
-    </div>
-    <div id="nav_menu-2" class="widget widget_nav_menu">
-        <div class="menu-header-menu-container">
-            <ul  class="menu">
-                {% for navigation in system.navigations %}
-                    <li><a href="{% url navigation.url %}">{{navigation.name}}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-    <div id="mailchimp-2" class="widget widget_mailchimp">
-        <h6 class="widget_title">Subscribe</h6>
-        <div id="mc_embed_signup">
-            <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><span class="icon-envelope"></span>
-                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" data-placeholder="Enter email address" required>
-                <input type="text" name="b_d4b8ae9364cc26cecfd46d335_23c55ddae5" tabindex="-1" value="" class="hidden">
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"><span class="icon icon-arrow-right2"></span></form>
-        </div>
-        <div class="mailchimp-description">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</div>
-    </div>
-    <div id="recent_portfolio-2" class="widget widget_recent_portfolio">
-        <h6 class="widget_title">Recent projects</h6>
-        <div class="recent-portfolio nz-clearfix">
-            <div class="post nz-clearfix">
-                <a href="#" title="Solo Map Icon Design">
-                    <div class="ninzio-thumbnail"><img width="150" height="150" src="{% static 'upload/portfolio14-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="portfolio1" /></div>
-                    <div class="ninzio-overlay"></div>
-                </a>
-            </div>
-            <div class="post nz-clearfix">
-                <a href="#" title="Lovely Girl Photo">
-                    <div class="ninzio-thumbnail"><img width="150" height="150" src="{% static 'upload/portfolio8-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="portfolio8" /></div>
-                    <div class="ninzio-overlay"></div>
-                </a>
-            </div>
-            <div class="post nz-clearfix">
-                <a href="#" title="Progress Bar Look">
-                    <div class="ninzio-thumbnail"><img width="150" height="150" src="{% static 'upload/portfolio3-2-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="portfolio3-2" /></div>
-                    <div class="ninzio-overlay"></div>
-                </a>
-            </div>
-            <div class="post nz-clearfix">
-                <a href="#" title="User Login Form">
-                    <div class="ninzio-thumbnail"><img width="150" height="150" src="{% static 'upload/portfolio6-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="portfolio6" /></div>
-                    <div class="ninzio-overlay"></div>
-                </a>
-            </div>
-            <div class="post nz-clearfix">
-                <a href="#" title="Very Happy Girl Photo">
-                    <div class="ninzio-thumbnail"><img width="150" height="150" src="{% static 'upload/portfolio7-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="portfolio7" /></div>
-                    <div class="ninzio-overlay"></div>
-                </a>
-            </div>
-            <div class="post nz-clearfix">
-                <a href="#" title="Single Button Video">
-                    <div class="ninzio-thumbnail"><img width="150" height="150" src="{% static 'upload/portfolio91-150x150.jpg' %}" class="attachment-thumbnail wp-post-image" alt="portfolio large" /></div>
-                    <div class="ninzio-overlay"></div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div id="reglog-2" class="widget widget_reglog">
-        <h6 class="widget_title">Login</h6>
-        <form name="loginform" id="loginform" action="#" method="post">
-
-            <p class="login-username">
-                <label for="user_login">Username</label>
-                <input type="text" name="log" id="user_login" class="input" value="" size="20" />
-            </p>
-            <p class="login-password">
-                <label for="user_pass">Password</label>
-                <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" />
-            </p>
-
-            <p class="login-submit">
-                <input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Log In" />
-            </p>
-
-        </form>
-    </div>
-</aside>
-
-
-
 <!--<script src="http://ditu.google.cn/maps/api/js?sensor=true"></script>-->
 <script type='text/javascript' src='{% static 'js/jquery/jquery.js' %}'></script>
 <script type='text/javascript' src='{% static 'js/jquery/jquery-migrate.min.js' %}'></script>
@@ -366,6 +245,29 @@
 <script type='text/javascript' src='{% static 'js/controller.js' %}'></script>
 <script type='text/javascript' src='{% static 'js/js_composer_front.js' %}'></script>
 <script type='text/javascript' src='{% static 'js/contact-form.js' %}'></script>
+    <script>
+
+       $(function () {
+            $('#jsStayBtn').on('click', function () {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{% url "companys:user_message" %}",
+                    data: $('#jsStayForm').serialize(),
+                    async: true,
+                    success: function (data) {
+                        if (data.status == 'success') {
+                            alert("内容已提交，公司会尽快反馈, 请耐心等待~~")
+                            window.location.reload();
+                        } else if (data.status == 'fail') {
+                              alert("提交失败, 内容填写错误！")
+                        }
+                    },
+                });
+            });
+        })
+
+    </script>
 {% block custom_js %}{% endblock %}
 </body>
 </html>

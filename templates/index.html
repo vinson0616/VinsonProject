@@ -37,12 +37,12 @@
                         {% if banner.show_button %}
 
                             <div id="{% if forloop.counter == 1 %}ninzio-layer-1380-4{% elif forloop.counter == 2 %}ninzio-layer-1383-4{% else %}ninzio-layer-1386-4{% endif %}" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="0" data-posy="380">
-                                <div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self"><span class="txt">在线留言</span></a>
+                                <div class="layer-wrap"><a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="{% url 'jobs:index' %}" target="_self"><span class="txt">人才招聘</span></a>
                                 </div>
                             </div>
 
                             <div id="{% if forloop.counter == 1 %}ninzio-layer-1380-5{% elif forloop.counter == 2 %}ninzio-layer-1383-5{% else %}ninzio-layer-1386-5{% endif %}" class="ninzio-layer scaleout" data-direction="scaleout" data-posx="180" data-posy="380">
-                                <div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self"><span class="txt">联系我们</span></a>
+                                <div class="layer-wrap"><a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="{% url 'companys:contact' %}" target="_self"><span class="txt">联系我们</span></a>
                                 </div>
                             </div>
                         {% endif %}

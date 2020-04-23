@@ -2,8 +2,94 @@
 {% load static %}
 {% block title %}{{ system.company.company_name }}{% endblock %}
 {% block custom_css %}
-
+    <link rel='stylesheet' href='{% static 'css/contact.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{% static 'css/bootstrap.min.css' %}' type='text/css' media='all' />
 {% endblock %}
 {% block content %}
-    about Me
+    <div class="contact-me">
+        <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_double vc_sep_pos_align_center vc_sep_color_grey extra-separator">
+            <span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+            <h4>联系我们</h4> <span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+        </div>
+        <div class="container">
+
+            <div class="col-md-7">
+
+                <div class="contact-form">
+                    <form id="jsStayForm" class="default-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="name" value="" placeholder="姓名*" required="">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" value="" placeholder="电子邮件*" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="mobile" value="" placeholder="手机">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="title" value="" placeholder="标题">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea name="content" placeholder="内容" required=""></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="margin-top: 20px;">
+
+                                <button id="jsStayBtn"  class="thm-btn bg-clr1" type="submit" data-loading-text="Please wait...">发送消息</button>
+                            </div>
+                        </div>
+                          {% csrf_token %}
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="footer-contact-info">
+                    <div class="title">
+                        <h4>在线联系</h4>
+                        <p>请根据以下内容，有问题及时联系我们，我们的工作人员给你解答</p>
+                    </div>
+                    <ul class="clearfix">
+                        <li>
+                            <div class="iocn-holder">
+                                <span class="icon-home"></span>
+                            </div>
+                            <div class="text-holder">
+
+                                <h6>{{system.company.address_street}}</h6>
+                                <p>{{system.company.address_province}}</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="iocn-holder">
+                                <span class="icon-phone"></span>
+                            </div>
+                            <div class="text-holder">
+                                <h6>联系电话</h6>
+                                <p>{{system.company.phone}}</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="iocn-holder">
+                                <span class="icon-mail"></span>
+                            </div>
+                            <div class="text-holder">
+                                <h6>Email@</h6>
+                                <a href="#"><p>{{system.company.email}}</p></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
 {% endblock %}

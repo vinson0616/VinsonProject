@@ -5,7 +5,7 @@ from django.contrib.auth.models import Group, Permission
 from xadmin.models import Log
 
 from .models import UserProfile, Banner, Navigation
-from companys.models import Company, Employee, CompanyHistory, FriendlyLink
+from companys.models import Company, Employee, CompanyHistory, FriendlyLink, UserMessage
 from products.models import ProductCategory, Product
 from systems.models import CircleItem
 from news.models import News
@@ -30,6 +30,7 @@ class GlobalSettings(object):
             )},
             {'title': '用户管理', 'menus': (
                 {'title': '用户信息', 'url': self.get_model_url(UserProfile, 'changelist')},
+                {'title': '在线留言', 'url': self.get_model_url(UserMessage, 'changelist')},
             )},
             {'title': '公司管理', 'menus': (
                 {'title': '我的公司', 'url': self.get_model_url(Company, 'changelist')},
@@ -129,6 +130,13 @@ class PositionAdmin(object):
     readonly_fields = ['add_time']
 
 
+class UserMessageAdmin(object):
+    list_display = ['name','title', 'mobile','email','content',  'add_time']
+    search_fields = ['name','title', 'mobile','email','content', 'add_time']
+    list_filter = ['name','title', 'mobile','email','content',  'add_time']
+    readonly_fields = ['add_time']
+
+
 xadmin.site.register(views.CommAdminView, GlobalSettings)
 xadmin.site.register(Banner, BannerAdmin)
 xadmin.site.register(Company, CompanyAdmin)
@@ -141,3 +149,4 @@ xadmin.site.register(CompanyHistory, CompanyHistoryAdmin)
 xadmin.site.register(FriendlyLink, FriendlyLinkAdmin)
 xadmin.site.register(News, NewsAdmin)
 xadmin.site.register(Position, PositionAdmin)
+xadmin.site.register(UserMessage, UserMessageAdmin)
