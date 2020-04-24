@@ -68,7 +68,7 @@
                                         <div class="nz-content-box nz-clearfix v1 scale" data-columns="4">
                                             {% for big_circle in big_circle_items %}
                                             <div id="nz-box-{{forloop.counter}}" class="back-active  border-active  nz-box">
-                                                <a href="#">
+                                                <a href="{% url big_circle.url %}">
                                                     <div class="box-icon-wrap">
                                                         <div class="box-icon {{big_circle.icon}}"></div>
                                                     </div>
@@ -155,7 +155,7 @@
                                         <div class="nz-content-box nz-clearfix v2 scale" data-columns="3">
                                             {% for small_circle in small_circle_items %}
                                             <div id="nz-box-{{ forloop.counter|add:4 }}" class="back-active  border-active  nz-box">
-                                                <a href="#">
+                                                <a href="{% url small_circle.url %}">
                                                     <div class="box-icon-wrap">
                                                         <div class="box-icon {{small_circle.icon}}"></div>
                                                     </div>
