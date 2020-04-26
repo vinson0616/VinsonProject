@@ -2524,7 +2524,7 @@ p {
 }
 
 .our-plumbers {
-  padding: 98px 0 85px;
+  padding: 0;
 }
 @media (max-width: 767px) {
   .our-plumbers {
@@ -2624,7 +2624,7 @@ p {
   padding-top: 10px;
   padding-bottom: 15px;
   border-width: 0;
-  height: 198px;
+  height: 168px;
 }
 .our-plumber .inner:hover ul li a:hover, .our-plumber .inner:hover ul li a:focus, .our-plumber .inner:focus ul li a:hover, .our-plumber .inner:focus ul li a:focus {
   background: #fff;

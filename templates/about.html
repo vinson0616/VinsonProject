@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}{% endblock %}
+{% block content %}
+    <section class="row page-cover">
+        <div class="container">
+            <h2 class="page-title">关于我们</h2>
+            <h4 class="page-subtitle">{{system.company.notice_content}}</h4>
+        </div>
+    </section>
+    <section class="row breadcrumb-row">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'index' %}">首页</a></li>
+                <li class="active">关于我们</li>
+            </ol>
+        </div>
+    </section>
+    <section class="row mission-statement">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4"><img src="{% static 'images/mission-statement.jpg' %}" alt="" class="img-responsive"></div>
+                <div class="col-sm-8">
+                    <div class="row this-textss">
+                        {% for history in company_histories %}
+                            <h2 class="this-title">{{ history.title }}</h2>
+                            <p>{{ history.desc }}</p>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="row our-plumbers">
+        <div class="container">
+            <h2 class="section-title">公司优秀团队</h2>
+            <div class="row plumber-lists">
+                {% for employee in employees %}
+                    <div class="col-md-3 col-sm-6 col-xs-6 our-plumber">
+                        <div class="row inner">
+                            <img src="{{MEDIA_URL}}{{ employee.image }}" alt="">
+                            <div class="overlay"></div>
+                            <div class="his-details row">
+                                <h4 class="name">{{employee.name}}</h4>
+                                <p>{{employee.desc}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="row emmergency-leaks">
+        <div class="container">
+            <h4 class="this-intro">{{system.company.notice_content}}</h4>
+            <h2 class="this-title">{{system.company.notice_title}}</h2>
+            <a href="#" class="call-link">{{system.company.phone}}</a>
+        </div>
+    </section>
+
+    <section class="row our-company">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2 class="section-title">我们公司</h2>
+				<p>{{ system.company.company_desc }}</p>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+{% endblock %}
