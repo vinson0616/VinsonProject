@@ -16,19 +16,17 @@ class IndexView(View):
         # 获取轮播图
         all_banners = Banner.objects.all().order_by('index')
         # 获取产品信息
-        products = Product.objects.all().order_by('add_time')[:8]
+        products = Product.objects.all().order_by('add_time')[:6]
         # 获取员工信息
         employees = Employee.objects.all()[:5]
-        # 获取大圆形内容
-        big_circle_items = CircleItem.objects.all().filter(type="big")[:4]
-        small_circle_items = CircleItem.objects.all().filter(type="small")[:8]
+        # 获取圆形内容
+        circle_items = CircleItem.objects.all()
         return render(request, 'index.html', {
             "all_banners": all_banners,
             "system": get_system_info(),
             "products": products,
             "employees": employees,
-            "big_circle_items": big_circle_items,
-            "small_circle_items": small_circle_items
+            "circle_items": circle_items
         })
 
 

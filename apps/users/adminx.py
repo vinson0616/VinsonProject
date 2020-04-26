@@ -96,7 +96,7 @@ class NavigationAdmin(object):
 
 
 class CircleItemAdmin(object):
-    list_display = ['title', 'type', 'icon','url', 'add_time']
+    list_display = ['title', 'icon','url', 'add_time']
     search_fields = ['title', 'url', 'add_time']
     list_filter = ['title', 'url', 'add_time']
     readonly_fields = ['add_time']

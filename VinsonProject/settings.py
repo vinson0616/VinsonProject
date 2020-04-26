@@ -98,7 +98,7 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'vinsonproject',
+            'NAME': 'zhhn',
             'USER': 'root',
             'PASSWORD': 'vinson',  # 'CHENjia520%'   #vinson,
             'HOST': '127.0.0.1'  # '47.104.226.120  #127.0.0.1'
@@ -108,7 +108,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'vinsonproject',
+            'NAME': 'zhhn',
             'USER': 'root',
             'PASSWORD': 'P@ssw0rd',  # 'CHENjia520%'   #vinson,
             'HOST': '47.114.96.255'  # '47.104.226.120  #127.0.0.1'
