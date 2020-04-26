@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Home</title>
+    <title>{% block title %}Home{% endblock %}</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -14,6 +14,8 @@
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/strock-icon.css' %}" rel="stylesheet">
     <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+  {% block custom_css %}
+  {% endblock %}
     <!-- owl-carousel-->
     <link rel="stylesheet" href="{% static 'vendors/owl.carousel/owl.carousel.css' %}">
     <!--    css-->
@@ -83,7 +85,7 @@
 			<div class="collapse navbar-collapse" id="plumber-nav">
 				<ul class="nav navbar-nav">
                     {% for navigation in system.navigations  %}
-                    <li><a href="index.html">{{navigation.name}}</a></li>
+                    <li><a href="{% url navigation.url %}">{{navigation.name}}</a></li>
                     {% endfor %}
 				</ul>
 				<ul class="nav nav-pills header-social">
@@ -97,167 +99,8 @@
 	</div>
 </nav></div>
 
-
-
-<div id="minimal-bootstrap-carousel" class="carousel slide carousel-fade shop-slider" data-ride="carousel">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        {% for banner in all_banners %}
-        <div class="item {% ifequal forloop.counter 1 %}active{% endifequal %} slide-{{forloop.counter}}" style="background-image: url({{MEDIA_URL}}{{ banner.image }});backgroudn-position: center right;">
-
-            <div class="carousel-caption">
-	      		<div class="thm-container">
-	      			<div class="box valign-top">
-	      				<div class="{% if forloop.counter == 1 %}content text-left pull-right{% elif forloop.counter == 2 %}content text-left{% else %}content text-left{% endif %}">
-							<h3 data-animation="animated fadeInUp" class="this-ttitle blue">{{banner.desc_1}}</h3>
-							<h2 data-animation="animated {% if forloop.counter == 1 %}fadeInDown{% elif forloop.counter == 2 %}fadeInUp{% else %}fadeInDown{% endif %}" class="this-mtitle">{{banner.desc_2}}</h2>
-							<ul data-animation="animated {% if forloop.counter == 1 %}fadeInLeft{% elif forloop.counter == 2 %}fadeInDown{% else %}fadeInRight{% endif %}" class="nav slider-list">
-								{{banner.desc_3}}
-							</ul>
-							<a data-animation="animated fadeInRight" href="#" class="btn btn-big btn-primary">联系我们</a>
-	      				</div>
-	      			</div>
-	      		</div>
-	    	</div>
-        </div>
-       {% endfor %}
-    </div>
-    <!-- Controls -->
-    <a class="left carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="prev">
-        <i class="fa fa-angle-left"></i>
-        <span class="sr-only">上页</span>
-    </a>
-    <a class="right carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="next">
-        <i class="fa fa-angle-right"></i>
-        <span class="sr-only">下页</span>
-    </a>
-</div>
-
-
-<section class="row maintance-row">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="media maintance-media">
-					<div class="media-left"><span><img src="{% static 'images/icons/3.png' %}" alt=""></span></div>
-					<div class="media-body">
-						<h4 class="this-title">需要购买产品 <span>联系我们</span></h4>
-						<p>我们24小时为你服务，请拨打以下热线电话. <a href="#">{{system.company.phone}}</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="media maintance-media">
-					<div class="media-left"><span><img src="{% static 'images/icons/4.png' %}" alt=""></span></div>
-					<div class="media-body">
-						<h4 class="this-title">产品专业 <span>维修服务</span></h4>
-						<p>你在我们家购买的产品，我们免费服务一年，请拨电话 <a href="#">{{system.company.phone}}</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="row welcome-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 welcome-textss">
-				<h2 class="this-title">公司<span>简介</span></h2>
-				<p>{{system.company.company_desc}}</p>
-			</div>
-			<div class="col-md-6">
-				<div class="row">
-					<div class="welcome-box">
-						<img src="{% static 'images/welcome1.jpg' %}" alt="" class="img-responsive">
-						<h3 class="this-title">公司经营产品</h3>
-						<p>公司主要经营能源，天然气，圣诞节福克斯进度款房间都开发发送到发送到发斯蒂芬斯蒂芬是。</p>
-						<a href="services.html">查看更多 >></a>
-					</div>
-					<div class="welcome-box">
-						<img src="{% static 'images/welcome2.jpg' %}" alt="" class="img-responsive">
-						<h3 class="this-title">公司动态新闻</h3>
-						<p>公司门户网站2020年4月26日正式上线了，开发就是肯定积分开始的姐夫看电视发的说法是的发多少第三方士大夫士大夫士大夫.</p>
-						<a href="services.html">查看更多 >></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="row service-offers">
-	<div class="container">
-		<h2 class="section-title">中昊和能提供以下服务</h2>
-		<div class="row">
-			<div class="service-offer-carousel">
-                {% for circle in circle_items %}
-				<div class="item service-offered">
-					<div class="so-icon"><img src="{{MEDIA_URL}}{{ circle.icon }}" alt=""></div>
-					<a class="this-title" href="#">{{circle.title}}</a>
-					<p>{{circle.desc}}</p>
-				</div>
-                {% endfor %}
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="row latest-projects">
-	<div class="container">
-		<h2 class="section-title">公司产品</h2>
-		<div class="row filterable-gallery">
-			<div class="grid-sizer size1"></div>
-            {% for product in products %}
-			<div class="col-md-4 col-sm-4 lp-gallery-item gallery-item">
-				<div class="row this-inner">
-					<img src="{{MEDIA_URL}}{{ product.image }}" height="312" alt="">
-					<div class="this-infos">
-						<div class="infos-inner">
-							<h4 class="this-title">{{product.name}}</h4>
-							<a href="#" class="this-link btn btn-primary">查看详情</a>
-						</div>
-					</div>
-				</div>
-			</div>
-            {% endfor %}
-		</div>
-	</div>
-</section>
-
-<section class="row emmergency-leaks">
-	<div class="container">
-		<h4 class="this-intro">{{system.company.notice_content}}</h4>
-		<h2 class="this-title">{{system.company.notice_title}}</h2>
-		<a href="#" class="call-link">{{system.company.phone}}</a>
-	</div>
-</section>
-
-
-<section class="row testimonial-row">
-	<div class="container">
-		<h2 class="section-title">公司团队</h2>
-		<div class="row">
-			<div class="testimonial-carousel">
-                {% for employee in employees %}
-				<div class="item testimonial-block">
-					<div class="testimonial-text-box row">
-						<div class="this-quote">“</div>
-						<div class="this-texts">{{ employee.desc }}</div>
-					</div>
-					<div class="media testimonial-author">
-						<div class="media-left"><a href="#"><img src="{{MEDIA_URL}}{{ employee.image }}" alt="" class="img-circle"></a></div>
-						<div class="media-body">
-							<h4 class="this-title">{{employee.name}}</h4>
-							<h6 class="loc">{{employee.position}}</h6>
-						</div>
-					</div>
-				</div>
-                {% endfor %}
-			</div>
-		</div>
-	</div>
-</section>
+{% block content %}
+{% endblock %}
 
 
 <section class="row footer-contacts">
@@ -317,5 +160,7 @@
 <script src="{% static 'vendors/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
 <script src="{% static 'vendors/owl.carousel/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/theme.js' %}"></script>
+{% block custom_js %}
+{% endblock %}
 </body>
 </html>
