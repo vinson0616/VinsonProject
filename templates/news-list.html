@@ -22,7 +22,7 @@
         </div>
     </section>
 
-    <section class="row services-contents site-contents">
+    <section class="row services-contents site-contents FrontNews">
         <div class="container">
              <ul class="comstyle newslist-01">
                 {% for news in all_news.object_list %}
@@ -42,11 +42,11 @@
                     <li class="clearBoth"></li>
                 {% endfor %}
             </ul>
-            <div style="display: flex; margin-top: 10px; justify-content: space-between">
+            <div style="display: flex; margin-top: 30px; justify-content: space-between">
                 <div style="margin-left: 10px;">
                     当前显示1-20条共{{total}}条
                 </div>
-                <div style="margin-right: 20px;">
+                <div>
                     <div class="pagination">
                         <a href="?{{ all_news.previous_page_number.querystring }}"><span class="{% if not all_news.has_previous %}disabled{% endif %}" title="上一页">上一页</span></a>
                         {% for page in all_news.pages %}
