@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}{% endblock %}
+{% block custom_css %}
+    <link rel='stylesheet' href='{% static 'css/pagination.css' %}' type='text/css' media='all' />
+{% endblock %}
+{% block content %}
+    <section class="row page-cover">
+        <div class="container">
+            <h2 class="page-title">{{system.company.notice_title}}</h2>
+            <h4 class="page-subtitle">{{system.company.notice_content}}</h4>
+        </div>
+    </section>
+
+    <section class="row breadcrumb-row">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'index' %}">首页</a></li>
+                <li class="active">新闻动态</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="row services-contents site-contents">
+        <div class="container">
+            
+        </div>
+{% endblock %}
