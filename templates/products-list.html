@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{ system.company.company_name }}{% endblock %}
 {% block custom_css %}
-     <link rel='stylesheet' href='{% static 'css/pagination.css' %}' type='text/css' media='all' />
+    <link rel='stylesheet' href='{% static 'css/pagination.css' %}' type='text/css' media='all' />
 {% endblock %}
 {% block content %}
     <section class="row page-cover">
@@ -35,6 +35,23 @@
                     </div>
 
                 {% endfor %}
+            </div>
+        </div>
+        <div style="text-align: center">
+            <div class="pagination">
+                <a href="?{{ products.previous_page_number.querystring }}"><span class="{% if not products.has_previous %}disabled{% endif %}" title="上一页">上一页</span></a>
+                {% for page in products.pages %}
+                    {% ifequal page products.number %}
+                        <a href="?{{ page.querystring }}"><span class="current">{{ page }}</span></a>
+                    {% else %}
+                        <a href="?{{ page.querystring }}"><span>{{ page }}</span></a>
+                    {% endifequal %}
+
+                {% endfor %}
+
+                <a href="?{{ products.next_page_number.querystring }}">
+                    <span class="{% if not products.has_next %}disabled{% endif %}">下一页</span>
+                </a>
             </div>
         </div>
     </section>
