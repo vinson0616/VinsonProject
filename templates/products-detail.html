@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}{% endblock %}
+{% block content %}
+    <section class="row page-cover">
+        <div class="container">
+            <h2 class="page-title">{{system.company.notice_title}}</h2>
+            <h4 class="page-subtitle">{{system.company.notice_content}}</h4>
+        </div>
+    </section>
+    <section class="row breadcrumb-row">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'index' %}">首页</a></li>
+                <li><a href="{% url 'products:list' %}">产品展示</a></li>
+                <li class="active">产品详情</li>
+            </ol>
+        </div>
+    </section>
+    <section class="row site-contents">
+	<div class="container">
+		<div class="media prod-details">
+			<div class="media-left">
+				<span class="media-object"><img src="{{ MEDIA_URL }}{{product.image}}" alt=""></span>
+			</div>
+			<div class="media-body">
+				<h2 class="this-title">{{product.name}}</h2>
+				<h4 class="this-subtitle">一级类型 : <span>{{product.category.parent_category.name}}</span></h4>
+				<h4 class="this-subtitle">二级类型 : <span>{{product.category.name}}</span></h4>
+			</div>
+		</div>
+
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs proTab" role="tablist">
+			<li role="presentation" class="active"><a href="#proTab-1" aria-controls="proTab-1" role="tab" data-toggle="tab">描述</a></li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content proTab-content">
+			<div role="tabpanel" class="tab-pane active" id="proTab-1">
+				 {{ product.detail }}
+			</div>
+		</div>
+
+	</div>
+</section>
+{% endblock %}
