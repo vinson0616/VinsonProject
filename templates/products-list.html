@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}{{ system.company.company_name }}{% endblock %}
+{% block custom_css %}
+     <link rel='stylesheet' href='{% static 'css/pagination.css' %}' type='text/css' media='all' />
+{% endblock %}
 {% block content %}
     <section class="row page-cover">
         <div class="container">
