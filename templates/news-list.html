@@ -3,6 +3,7 @@
 {% block title %}{{ system.company.company_name }}{% endblock %}
 {% block custom_css %}
     <link rel='stylesheet' href='{% static 'css/pagination.css' %}' type='text/css' media='all' />
+     <link rel='stylesheet' href='{% static 'css/news.css' %}' type='text/css' media='all' />
 {% endblock %}
 {% block content %}
     <section class="row page-cover">
@@ -23,6 +24,45 @@
 
     <section class="row services-contents site-contents">
         <div class="container">
-            
+             <ul class="comstyle newslist-01">
+                {% for news in all_news.object_list %}
+                    <li class="content column-num1">
+                        <div class="newstitle">
+                            <ul>
+                                <li class="title">
+                                    <h3>
+                                        <a href="{% url 'news:detail' news.id %}">{{news.title}}</a>
+                                    </h3>
+                                </li>
+                                <li class="date"><span>发布时间：</span>{{news.add_time}}
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="clearBoth"></li>
+                {% endfor %}
+            </ul>
+            <div style="display: flex; margin-top: 10px; justify-content: space-between">
+                <div style="margin-left: 10px;">
+                    当前显示1-20条共{{total}}条
+                </div>
+                <div style="margin-right: 20px;">
+                    <div class="pagination">
+                        <a href="?{{ all_news.previous_page_number.querystring }}"><span class="{% if not all_news.has_previous %}disabled{% endif %}" title="上一页">上一页</span></a>
+                        {% for page in all_news.pages %}
+                            {% ifequal page all_news.number %}
+                                <a href="?{{ page.querystring }}"><span class="current">{{ page }}</span></a>
+                            {% else %}
+                                <a href="?{{ page.querystring }}"><span>{{ page }}</span></a>
+                            {% endifequal %}
+
+                        {% endfor %}
+
+                        <a href="?{{ all_news.next_page_number.querystring }}">
+                            <span class="{% if not all_news.has_next %}disabled{% endif %}">下一页</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 {% endblock %}
