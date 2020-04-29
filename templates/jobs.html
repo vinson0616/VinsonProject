@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}{% endblock %}
+{% block custom_css %}
+
+{% endblock %}
+{% block content %}
+    <section class="row page-cover">
+        <div class="container">
+            <h2 class="page-title">{{system.company.notice_title}}</h2>
+            <h4 class="page-subtitle">{{system.company.notice_content}}</h4>
+        </div>
+    </section>
+
+    <section class="row breadcrumb-row">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'index' %}">首页</a></li>
+                <li class="active">人才招聘</li>
+            </ol>
+        </div>
+    </section>
+{% endblock %}
