@@ -55,7 +55,7 @@ class ProductListView(View):
             page = request.GET.get('page', 1)
         except PageNotAnInteger:
             page = 1
-        p = Paginator(products, 3, request=request)
+        p = Paginator(products, 15, request=request)
         products = p.page(page)
 
         return render(request, "products-list.html", {
