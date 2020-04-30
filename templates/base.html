@@ -160,6 +160,29 @@
 <script src="{% static 'vendors/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
 <script src="{% static 'vendors/owl.carousel/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/theme.js' %}"></script>
+<script>
+
+    $(function () {
+        $('#jsStayBtn').on('click', function () {
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "{% url "companys:user_message" %}",
+                data: $('#jsStayForm').serialize(),
+                async: true,
+                success: function (data) {
+                    if (data.status == 'success') {
+                        alert("内容已提交，公司会尽快反馈, 请耐心等待~~")
+                        window.location.reload();
+                    } else if (data.status == 'fail') {
+                        alert("提交失败, 内容填写错误！")
+                    }
+                },
+            });
+        });
+    })
+
+</script>
 {% block custom_js %}
 {% endblock %}
 </body>
