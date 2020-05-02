@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 SECRET_KEY = '12z4k)8m@ijttmnuh3w+k(&n1xoawt9eih3fjcy8=o!mgfiikz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -153,7 +153,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 # 默认
-STATIC_URL = '/static/'
+STATIC_URL = '/zhhn/static/'
 # 项目根目录下的static文件夹
 if DEBUG:
     STATICFILES_DIRS = (
@@ -163,5 +163,5 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # 上传文件的存储位置
-MEDIA_URL ='/media/'
+MEDIA_URL ='/zhhn/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
