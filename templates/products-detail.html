@@ -34,7 +34,9 @@
                             <div class="tabs-container">
                                 <div id="tab-1424353456572-1" class="tab-content">
                                     <div style="" class="nz-column-text nz-clearfix">
-                                        {{ product.detail }}
+                                        {% autoescape off %}
+                                            {{ product.detail }}
+                                        {% endautoescape %}
                                     </div>
                                 </div>
                             </div>

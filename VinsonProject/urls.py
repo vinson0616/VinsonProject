@@ -44,4 +44,7 @@ urlpatterns = [
 
     # 人才招聘 相关url配置
     path("jobs/", include('jobs.urls', namespace="jobs")),
+
+    # 富文本相关url
+    path('ueditor/', include('DjangoUeditor.urls')),
 ]
