@@ -84,7 +84,7 @@ class UserMessage(models.Model):
     """
     在线留言
     """
-    name = models.CharField(max_length=20, verbose_name="姓名")
+    name = models.CharField(max_length=20, verbose_name="姓名", null=True, blank=True)
     title = models.CharField(max_length=30, verbose_name="标题", null=True, blank=True)
     mobile = models.CharField(max_length=11, verbose_name="手机")
     email =  models.CharField(max_length=30, verbose_name="电子邮件", null=True, blank=True)

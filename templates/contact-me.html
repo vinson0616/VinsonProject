@@ -29,7 +29,8 @@
                         <input type="text" class="form-control" name="mobile" placeholder="手机">
                         <input type="text" class="form-control" name="title" placeholder="标题">
                         <textarea class="form-control" name="content" placeholder="内容"></textarea>
-                        <input id="jsStayBtn" type="submit" value="马上提交" class="btn btn-primary contact-submit">
+                        <input id="jsStayBtn" type="button" value="马上提交" class="btn btn-primary contact-submit">
+                        {% csrf_token %}
                     </form>
 
                 </div>
@@ -46,4 +47,30 @@
             </div>
         </div>
     </section>
+{% endblock %}
+{% block custom_js %}
+    <script>
+
+    $(function () {
+        $('#jsStayBtn1').on('click', function () {
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "{% url "companys:user_message" %}",
+                data: $('#jsStayForm1').serialize(),
+                async: true,
+                success: function (data) {
+                    if (data.status == 'success') {
+                        alert("内容已提交，公司会尽快反馈, 请耐心等待~~")
+                        window.location.reload();
+                    } else if (data.status == 'fail') {
+                        alert("提交失败, 内容填写错误！")
+                    }
+                },
+            });
+        });
+    })
+
+
+</script>
 {% endblock %}

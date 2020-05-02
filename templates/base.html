@@ -139,14 +139,14 @@
 
 <footer class="row site-footer">
 	<div class="container">
-		<form action="#" class="row newsletter-form" style="margin-top: 10px;">
+		<form id="jsStayForm1" class="row newsletter-form" style="margin-top: 10px;">
 			<div class="nform-texts">如果你需要购买产品或者对本网站有相关的意见，请留言</div>
             <div style="display: flex;">
-            <input type="email" class="form-control nform-input" placeholder="请输入反馈内容">
-			<input type="email" class="form-control nform-input" placeholder="请输入手机">
-			<input type="submit" value="提交" class="btn btn-primary nform-btn">
+            <input type="text" name="content" class="form-control nform-input" placeholder="请输入反馈内容">
+			<input type="text" name="mobile" class="form-control nform-input" placeholder="请输入手机">
+			<input type="button" value="提交" id="jsStayBtn1" class="btn btn-primary nform-btn">
             </div>
-
+            {% csrf_token %}
 		</form>
 	<div class="row copyright-row">
 			<div class="copyright-texts">{{system.company.footer_desc}}</div>
@@ -181,6 +181,7 @@
             });
         });
     })
+
 
 </script>
 {% block custom_js %}
