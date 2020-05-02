@@ -29,7 +29,6 @@ class Banner(models.Model):
     title = models.CharField(max_length=100, verbose_name="标题")
     desc_1 = models.CharField(max_length=100, null=True, blank=True, verbose_name="描述1")
     desc_2 = models.CharField(max_length=100, null=True, blank=True, verbose_name="描述2")
-    desc_3 = models.CharField(max_length=100, null=True, blank=True, verbose_name="描述3")
     show_button = models.BooleanField(default=True, verbose_name="是否显示按钮")
     index = models.IntegerField(default=1, verbose_name="显示顺序")
     image = models.ImageField(upload_to="banner/%Y/%m", null=True, blank=True, verbose_name="轮播图", max_length=100)
@@ -48,6 +47,7 @@ class Navigation(models.Model):
     导航栏
     """
     name = models.CharField(max_length=100, verbose_name="名称")
+    has_Inner = models.BooleanField(verbose_name="是否内部链接", default=True)
     url = models.CharField(max_length=100, verbose_name="Url")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 

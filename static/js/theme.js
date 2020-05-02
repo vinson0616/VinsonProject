@@ -1,241 +1,359 @@
-;(function($) {
-    "use strict";
-	
-	function bootstrapAnimatedLayer() {
-
-		/* Demo Scripts for Bootstrap Carousel and Animate.css article
-		 * on SitePoint by Maria Antonietta Perna
-		 */
-
-		//Function to animate slider captions 
-		function doAnimations(elems) {
-			//Cache the animationend event in a variable
-			var animEndEv = 'webkitAnimationEnd animationend';
-
-			elems.each(function() {
-				var $this = $(this),
-					$animationType = $this.data('animation');
-				$this.addClass($animationType).one(animEndEv, function() {
-					$this.removeClass($animationType);
-				});
-			});
-		}
-
-		//Variables on page load 
-		var $myCarousel = $('#minimal-bootstrap-carousel'),
-			$firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
-
-		//Initialize carousel 
-		$myCarousel.carousel({
-			interval: 7000
-		});
-
-		//Animate captions in first slide on page load 
-		doAnimations($firstAnimatingElems);
-
-		//Pause carousel  
-		$myCarousel.carousel('pause');
+$(function () {
+    'use strict';
 
 
-		//Other slides to be animated on carousel slide event 
-		$myCarousel.on('slide.bs.carousel', function(e) {
-			var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
-			doAnimations($animatingElems);
-		});
-	}
-	
-	
-	if ( $('#minimal-bootstrap-carousel').length ){
-		bootstrapAnimatedLayer();
-	}
-    
-	if ( $('.main-slider').length ){
-		
-		$('.main-slider').each(function(){
-			$('.main-slider').owlCarousel({
-				loop:true,
-				margin:0,
-				items:1,
-				autoplay: true,
-				nav: true,
-				navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
-				autoplayHoverPause: true
-			})
-		})
-	}
+    /*****************************************************
+     * Loader
+     *****************************************************/
+    $(".loaders > img:gt(0)").hide();
 
-    
-	if ( $('.service-offer-carousel').length ){
-		$('.service-offer-carousel').each(function(){
-			$('.service-offer-carousel').owlCarousel({
-				loop:true,
-				margin:0,
-				nav: false,
-				dots: true,
-				autoplay: true,
-				responsive: {
-					0: {
-						items: 1
-					},
-					600: {
-						items: 2
-					},
-					768: {
-						items: 3
-					},
-					1200: {
-						items: 4
-					}
-				}
-			})
-		})
-	}
+    setInterval(function() {
+        $('.loaders> img:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('.loaders');
+    },  2000);
+    $(window).on("load", function () {
+        $("#page-loader").css('display', 'none');
+    });
 
-    
-	if ( $('.testimonial-carousel').length ){
-		$('.testimonial-carousel').each(function(){
-			$('.testimonial-carousel').owlCarousel({
-				loop:true,
-				margin:0,
-				nav: false,
-				dots: true,
-				autoplay: true,
-				responsive: {
-					0: {
-						items: 1
-					},
-					992: {
-						items: 2
-					}
-				}
-			})
-		})
-	}
-	
-	
-	if ( $('.google-map').length ){
-		var mapDiv = $('.google-map');
-		mapDiv.each(function(){
-			var $lat = mapDiv.data('lat');
-			var $lon = mapDiv.data('lon');			
-			if (mapDiv.data('zoom')){
-				var $zoom = mapDiv.data('zoom')
-			}else{
-				var $zoom = 15
-			}
-			if (mapDiv.data('marker')) var $marker = mapDiv.data('marker');
-			var map = new GMaps({
-				el: '.google-map',
-				lat: $lat,
-				lng: $lon,
-				scrollwheel: false,
-				scaleControl: true,
-				streetViewControl: false,
-				panControl: true,
-				disableDoubleClickZoom: true,
-				mapTypeControl: false,
-				zoom: $zoom,
-				styles: [
-					{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},          
-					{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},
-					{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},
-					{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},
-					{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},
-					{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},
-					{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},
-					{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},
-					{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},
-					{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},
-					{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}
-				]
-			});
+    /*****************************************************
+     * General Targets
+     *****************************************************/
+    function sliderContents() {
+        var targetContainer = $('#slider-contents .jumbotron'),
+            mainSliderContentsHeight = $(targetContainer).outerHeight();
+        //console.log(mainSliderContentsHeight);
+        $(targetContainer).css('margin-top', -( mainSliderContentsHeight/2 ));
+        //console.log(mainSliderContentsHeight);
+    }
+    sliderContents();
+    $( window ).on("load", function() {
+        sliderContents();
+    });
 
-			if ( $marker ){
-				map.addMarker({
-					lat: $lat,
-					lng: $lon,
-					marker: $marker
-				})
-			}else{
-				map.addMarker({
-					lat: $lat,
-					lng: $lon
-				})
-			}
-		})
-	}
-	
-	
-	if ( $('.filterable-gallery').length ){
-		$('.filterable-gallery').imagesLoaded( function() {
+    $( window ).on("resize", function() {
+        sliderContents();
+    });
 
-			$(".filterable-gallery").isotope({
-				itemSelector: ".gallery-item",
-				layoutMode: 'masonry',
-				masonry: {
-					columnWidth: '.grid-sizer'
-				}
-			});
+    $(".property-map-wrapper #advance-search .top-btn").on('click', function () {
+        $(".property-map-wrapper #advance-search .top-btn").toggleClass('active');
+        $(".property-map-wrapper #advance-search .top-btn i").toggleClass('fa-caret-up');
+        $("#adv-search-form").stop(true, true).slideToggle();
+    });
 
-			// Add isotope click function
-			$(".gallery-filter li").on('click',function(){
-				$(".gallery-filter li").removeClass("active");
-				$(this).addClass("active");
+    $('time.updated').each(function(){
+        var me = $(this);
+        me.html(me.html().replace(/^(\w+)/, '<strong>$1</strong>'));
+    });
 
-				var selector = $(this).attr("data-filter");
-				$(".filterable-gallery").isotope({
-					filter: selector
-				})
-			})
+    /*****************************************************
+     * Main Menu
+     *****************************************************/
+    $("#site-nav li").on('mouseenter mouseleave', function () {
+        $(this).children("ul").stop(true, true).slideToggle(300);
+    });
 
-		})
-	}
-	
-	if ( $('[data-pmbgimage]').length ){
-		var $pmbgimage = $('[data-pmbgimage]').attr('data-pmbgimage');
-		console.log($pmbgimage);
-		$('[data-pmbgimage]').css({
-			"background-image": "url("+$pmbgimage+")"
-		})
-	}
-	
-	if ( $('[data-imagelightbox]').length ){
-		$('[data-imagelightbox="a"]').imageLightbox({
-			activity: true,
-			overlay: true,
-			button: true, 
-			quitOnDocClick: false,
-			caption: true,
-			arrows: true
-		})
-	}
-	
-	if ( $('.pr-twenty20').length ){
-		$('.pr-twenty20').twentytwenty();
-	}
-	
-	
-	if( $('.plumber-navbar').length ){
-		
-		if ( $(window).width() > 991 ){
-			$(window).on('scroll', function(){
-				var $topG = $('.plumber-navbar').offset().top;
 
-				if ( $(window).scrollTop() > $topG + 66 ) {
-					$('.plumber-navbar').addClass('affix-coming')
-				}
-				else {
-					$('.plumber-navbar').removeClass('affix-coming')
-				}
 
-				$('.plumber-navbar').affix({
-					offset: {
-						top: $topG + 150
-					}
-				})
-			})
-		}
-		
-	}
-    
-})(jQuery)
+    /*****************************************************
+     * Image Zoom
+     * https://github.com/fat/zoom.js/
+     ************************"*****************************/
+    $("a.zoom").on("click", function (e) {
+        e.preventDefault();
+    });
+
+
+
+    /*****************************************************
+     * Slick Slider
+     * http://kenwheeler.github.io/slick/
+     *****************************************************/
+    if( jQuery().slick ) {
+        $('#main-slider').slick({
+            dots: false,
+            infinite: true,
+            fade: true,
+            speed: 1000,
+            autoplaySpeed: 3000,
+            lazyLoad: 'progressive',
+            cssEase: 'linear',
+            adaptiveHeight:true,
+            autoplay: true,
+            prevArrow: '<i class="fa fa-angle-right"></i>',
+            nextArrow: '<i class="fa fa-angle-left"></i>',
+            responsive: [
+                {
+                    breakpoint: 991,
+                    settings: {
+                        arrows: false
+                    }
+                }
+            ]
+        });
+
+        $('#property-for-rent-slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            speed: 1000,
+            autoplaySpeed: 2000,
+            prevArrow: '<i class="fa fa-angle-left"></i>',
+            nextArrow: '<i class="fa fa-angle-right"></i>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    }
+
+
+
+    /*****************************************************
+     * Scroll Top
+     *****************************************************/
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('#scroll-top').fadeIn();
+        } else {
+            $('#scroll-top').fadeOut();
+        }
+    });
+    $("a[href='#top']").on('click', function() {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });
+
+
+
+    /*****************************************************
+     * Properties Layout Function
+     *****************************************************/
+    var propertyItem =$(".layout-item-wrap"),
+        layoutLinks= $('.layout-view .fa'),
+        listStyle= $('.layout-item');
+
+    layoutLinks.on('click', function () {
+        var targetClass = 'col-xs-' + $(this).data('layout');
+
+        propertyItem.removeClass(function (index, className) {
+            return (className.match (/\bcol-\S+/g) || []).join(' ');
+        });
+        propertyItem.addClass(targetClass);
+
+        if (propertyItem.hasClass('col-xs-12')) {
+            listStyle.addClass('list-style');
+        } else {
+            listStyle.removeClass('list-style');
+        }
+        layoutLinks.removeClass('selected');
+        $(this).addClass('selected');
+        return false;
+    });
+
+
+
+
+    /*****************************************************
+     * Tabs
+     *****************************************************/
+    $( "#tabs, #widget-tabs" ).tabs();
+
+
+
+    /*****************************************************
+     * Slick Nav
+     * http://slicknav.com/
+     *****************************************************/
+    if(jQuery().slicknav ) {
+        $('#site-nav > ul').slicknav({
+            prependTo: "#site-header-top + .container >.row"
+        });
+    }
+
+
+
+    /*****************************************************
+     * Twitter Feeds
+     * https://github.com/sonnyt/Tweetie
+     *****************************************************/
+    if(jQuery().twittie ) {
+        $('#twitter-feeds').twittie({
+            username: 'themesinspire',
+            'count': 2,
+            'hideReplies': true,
+            template: '<span class="avatar"> {{avatar}} </span> <p class="tweet">{{tweet}}</p>',
+            loadingText: 'Fetching Tweets...'
+        }, function () {
+
+        });
+
+    }
+
+
+
+    /*****************************************************
+     * Whats Nearby Function
+     * https://github.com/LaGrangeMtl/WhatsNearby
+     *****************************************************/
+    window.onload= function () {
+        if(jQuery().whatsnearby ) {
+            $("#nearby-places-map").whatsnearby({
+                zoom: 15,
+                width: "100%",
+                address: "Montreal",
+                placesRadius: 500,
+                scrollwheel: false,
+                placesTypes: ['restaurant', 'cafe', 'gym'],
+                excludePlacesTypes: ['bar']
+            });
+        }
+    };
+
+
+
+    /*****************************************************
+     * Contact Form AJAX validation and submission
+     * Validation Plugin : http://bassistance.de/jquery-plugins/jquery-plugin-validation/
+     * Form Ajax Plugin : http://www.malsup.com/jquery/form/
+     ****************************************************/
+    if(jQuery().validate && jQuery().ajaxSubmit)
+    {
+
+        var submitButton = $('#submit-button'),
+            ajaxLoader = $('#ajax-loader'),
+            messageContainer = $('#message-container'),
+            errorContainer = $("#error-container");
+
+        var formOptions = {
+            beforeSubmit: function () {
+                submitButton.attr('disabled', 'disabled');
+                ajaxLoader.fadeIn('fast');
+                messageContainer.fadeOut('fast');
+                errorContainer.fadeOut('fast');
+            },
+            success: function (ajax_response, statusText, xhr, $form) {
+                function parseMyHeader(){
+                    try {
+                        return JSON.parse(ajax_response);
+                    } catch(ex){
+                        return false;
+                    }
+                }
+
+                var response = parseMyHeader();
+                ajaxLoader.fadeOut('fast');
+                submitButton.removeAttr('disabled');
+                if(!null && response.response == true){
+                    if (response.response) {
+                        $form.resetForm();
+                        messageContainer.html(response.message).fadeIn('fast');
+                    } else {
+                        errorContainer.html(response.message).fadeIn('fast');
+                    }
+                }else{
+                    errorContainer.html(ajax_response).fadeIn('fast');
+                }
+            }
+        };
+
+        $('.contact-form').validate({
+            errorLabelContainer: errorContainer,
+            submitHandler: function (form) {
+                $(form).ajaxSubmit(formOptions);
+            }
+        });
+    }
+
+
+
+    /*****************************************************
+     *Animations
+     * http://mynameismatthieu.com/WOW/
+     *http://daneden.github.io/animate.css
+     ******************************************************/
+    function afterReveal( el ) {
+        el.addEventListener('animationend', function( event ) {
+            $(el).removeAttr('style');
+        });
+    }
+    var wow = new WOW(
+        {
+            boxClass:     'wow',      // animated element css class (default is wow)
+            animateClass: 'animated', // animation css class (default is animated)
+            offset:       0,          // distance to the element when triggering the animation (default is 0)
+            mobile:       false,       // trigger animations on mobile devices (default is true)
+            live:         true,       // act on asynchronously loaded content (default is true)
+           // callback:     afterReveal,
+            scrollContainer: null // optional scroll container selector, otherwise use window
+        }
+    );
+    $(window).on('load', function() {
+        wow.init();
+    });
+
+
+
+    /*****************************************************
+     * Mixup Filter Plugin
+     * https://www.kunkalabs.com/mixitup/
+     *****************************************************/
+    var filterContainer = document.getElementById('filter-container');
+
+    if($(filterContainer).length > 0){
+        var mixer = mixitup(filterContainer, {
+            selectors: {
+                target: '.mix'
+            },
+            animation: {
+                "duration": 618,
+                effects: 'fade scale stagger(50ms)' // Set a 'stagger' effect for the loading animation
+            },
+            load: {
+                filter: 'none' // Ensure all targets start from hidden (i.e. display: none;)
+            }
+        });
+
+        // Add a class to the container to remove 'visibility: hidden;' from targets. This
+        // prevents any flickr of content before the page's JavaScript has loaded.
+        filterContainer.classList.add('mixitup-ready');
+
+        // Show all targets in the container
+        mixer.show()
+            .then(function() {
+
+                // Remove the stagger effect for any subsequent operations
+                mixer.configure({
+                    animation: {
+                        effects: 'fade scale'
+                    }
+                });
+            });
+    }
+
+
+
+}(jQuery));
