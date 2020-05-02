@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="398a1b1b-8fe3-4693-b87c-6c383eeff214" name="47.114.96.255" url="http://47.114.96.255">
-        <fileTransfer host="47.114.96.255" port="22" rootFolder="/root/VinsonProject" accessType="SFTP">
+        <fileTransfer host="47.114.96.255" port="22" rootFolder="/root/project/jysy" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

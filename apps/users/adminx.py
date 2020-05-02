@@ -18,8 +18,8 @@ class BaseSetting(object):
 
 
 class GlobalSettings(object):
-    site_title = "Vinson模板管理系统"  #页面左上角
-    site_footer = "2020 Vinson模板管理系统"
+    site_title = "嘉绎实业后台管理系统"  #页面左上角
+    site_footer = "2020 嘉绎实业后台管理系统"
     # menu_style = "accordion"
 
     def get_site_menu(self):
