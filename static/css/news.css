@@ -59,17 +59,17 @@
     float: left;
 }
 .FrontNews .date {
-    width: 130px;
+    width: 170px;
     float: right;
     margin-right: 40px;
     color: #87a4ac;
-    font-size: 12px;
+    font-size: 14px;
 }
 .FrontNews .newstitle LI H3 {
     padding-left: 12px;
     display: inline;
     color: #333333;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
 }
 .FrontNews .newstitle LI {
@@ -99,7 +99,7 @@
     margin-top: 20px;
 }
 .newsContent .htmledit {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 26px;
     color: #666;
 }
