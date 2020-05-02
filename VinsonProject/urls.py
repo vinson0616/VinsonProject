@@ -30,6 +30,9 @@ urlpatterns = [
     # 首页
     path('', IndexView.as_view(), name="index"),
 
+    # 富文本相关url
+    path('ueditor/', include('DjangoUeditor.urls')),
+
     # 用户 相关url配置
     path("users/", include('users.urls', namespace="users")),
 

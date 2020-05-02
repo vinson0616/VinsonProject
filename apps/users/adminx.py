@@ -79,6 +79,7 @@ class ProductAdmin(object):
     search_fields = ['name', 'category', 'add_time']
     list_filter = ['name', 'category', 'add_time']
     readonly_fields = ['add_time']
+    style_fields = {'detail': 'ueditor'}
 
 
 class EmployeeAdmin(object):
