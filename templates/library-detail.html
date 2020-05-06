@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}-资源素材详情{% endblock %}
+{% block content %}
+    <div id="site-banner" class="text-center clearfix">
+        <div class="container">
+            <h1 class="title wow slideInLeft">{{library.name}}</h1>
+            <ol class="breadcrumb wow slideInRight">
+                <li><a href="{% url 'index' %}">首页</a></li>
+                <li class="active">资源素材详情</li>
+            </ol>
+        </div>
+    </div>
+    <div id="property-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-7">
+                    <section class="property-meta-wrapper common">
+                        <h3 class="entry-title">{{library.name}}</h3>
+                        <div class="property-single-meta" style="display: flex; justify-content: space-between">
+                            <ul class="clearfix">
+                                <li><span>素材编号 :</span> {{library.id}}</li>
+                                <li><span>文件大小 :</span> {{library.size}} MB</li>
+                                <li><span>文件格式 :</span> {{library.format|default_if_none:''|upper}}</li>
+                                <li><span>上传时间 :</span> {{library.add_time}}</li>
+                            </ul>
+                                <img  width="400px;" data-action="zoom" src="{{MEDIA_URL}}{{ library.image }}" alt="Property Image">
+
+                        </div>
+                    </section>
+                    <section style="text-align: center; margin-bottom: 20px;">
+                        <a href="{% if library.download %}{{ MEDIA_URL }}{{ library.download }}{% else %}{{ library.url }}{% endif %}" target="_blank" download="" class="btn btn-default btn-lg text-center btn-3d" data-hover="免费下载">免费下载</a>
+                    </section>
+                    <section class="property-contents common">
+                        <div class="entry-title clearfix">
+                            <h4 class="pull-left">描述 </h4><a class="pull-right print-btn" href="javascript:window.print()">打印当前页面 <i class="fa fa-print"></i></a>
+                        </div>
+                        <p>{{ library.desc|default_if_none:'无' }}</p>
+                    </section>
+                </div>
+                <div class="col-lg-4 col-md-5">
+                    <div id="property-sidebar">
+                        <section class="widget recent-properties clearfix">
+                            <h5 class="title">最新的资源素材</h5>
+                            {% for library_new in libraries %}
+                            <div class="property clearfix">
+                                <a href="#" class="feature-image zoom">
+                                    <img data-action="zoom" src="{{ MEDIA_URL }}{{ library_new.image }}" alt="{{library_new.name}}"></a>
+                                <div class="property-contents">
+                                    <h6 class="entry-title"><a href="{% url 'library:detail' library_new.id %}">{{library_new.name}}</a></h6>
+                                    <span class="btn-price">免费</span>
+                                    <div class="property-meta clearfix">
+                                        <span><i class="fa fa-user"></i> {{library_new.click_nums}}</span>
+                                        <span><i class="fa fa-download"></i> 120</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

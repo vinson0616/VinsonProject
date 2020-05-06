@@ -751,6 +751,11 @@ img.zoom-img {
 }
 .property .feature-image img {
   width: 100%;
+  height: 233px;
+}
+.recent-properties .feature-image img {
+  width: 100%;
+  height: 82px;
 }
 .property .btn-sale {
   font-size: 10px;
@@ -1370,7 +1375,7 @@ img.zoom-img {
   margin-bottom: 25px;
 }
 .property-single-meta {
-  background: url("../images/floor-plan-map.jpg") center right no-repeat;
+  /*background: url("../images/floor-plan-map.jpg") center right no-repeat;*/
 }
 .property-single-meta ul {
   margin: 0;

@@ -18,7 +18,7 @@ from django.views.static import serve
 from VinsonProject.settings import MEDIA_ROOT
 import xadmin
 
-from users.views import IndexView
+from users.views import IndexView, LoginView
 
 urlpatterns = [
     # 后台管理首页
@@ -47,4 +47,10 @@ urlpatterns = [
 
     # 人才招聘 相关url配置
     path("jobs/", include('jobs.urls', namespace="jobs")),
+
+    # 资源素材 相关url配置
+    path("libraries/", include('library.urls', namespace="library")),
+
+    # 用户登录
+    path('login/', LoginView.as_view(), name="login"),
 ]

@@ -6,7 +6,7 @@ from xadmin.models import Log
 
 from .models import UserProfile, Banner, Navigation
 from companys.models import Company, Employee, CompanyHistory, FriendlyLink, UserMessage
-from products.models import ProductCategory, Product
+from library.models import LibraryCategory, LibraryMedia
 from systems.models import CircleItem
 from news.models import News
 from jobs.models import Position
@@ -24,9 +24,9 @@ class GlobalSettings(object):
 
     def get_site_menu(self):
         return (
-            {'title': '产品管理', 'menus': (
-                {'title': '产品类别', 'url': self.get_model_url(ProductCategory, 'changelist')},
-                {'title': '产品信息', 'url': self.get_model_url(Product, 'changelist')},
+            {'title': '资源素材', 'menus': (
+                {'title': '资源素材类别', 'url': self.get_model_url(LibraryCategory, 'changelist')},
+                {'title': '资源素材库', 'url': self.get_model_url(LibraryMedia, 'changelist')},
             )},
             {'title': '用户管理', 'menus': (
                 {'title': '用户信息', 'url': self.get_model_url(UserProfile, 'changelist')},
@@ -66,20 +66,6 @@ class CompanyAdmin(object):
     list_filter = ['company_name', 'show', 'add_time']
     readonly_fields = ['add_time']
 
-
-class ProductCategoryAdmin(object):
-    list_display = ['name', 'parent_category', 'add_time']
-    search_fields = ['name', 'parent_category', 'add_time']
-    list_filter = ['name', 'parent_category', 'add_time']
-    readonly_fields = ['add_time']
-
-
-class ProductAdmin(object):
-    list_display = ['name', 'category', 'add_time']
-    search_fields = ['name', 'category', 'add_time']
-    list_filter = ['name', 'category', 'add_time']
-    readonly_fields = ['add_time']
-    style_fields = {'detail': 'ueditor'}
 
 
 class EmployeeAdmin(object):
@@ -141,8 +127,6 @@ class UserMessageAdmin(object):
 xadmin.site.register(views.CommAdminView, GlobalSettings)
 xadmin.site.register(Banner, BannerAdmin)
 xadmin.site.register(Company, CompanyAdmin)
-xadmin.site.register(ProductCategory, ProductCategoryAdmin)
-xadmin.site.register(Product, ProductAdmin)
 xadmin.site.register(Employee, EmployeeAdmin)
 xadmin.site.register(Navigation, NavigationAdmin)
 xadmin.site.register(CircleItem, CircleItemAdmin)
