@@ -133,3 +133,13 @@ class RegisterView(View):
         return render(request,"register.html", {"register_form": register_form,"system": get_system_info()})
 
 
+class UserInfoView(View):
+    """
+    个人中心 -  我的信息
+    """
+    def get(self, request):
+        return render(request,'usercenter/user-info.html',{
+            "system": get_system_info(),
+        })
+
+

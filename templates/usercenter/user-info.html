@@ -1,0 +1,56 @@
+{% extends 'usercenter/usercenter-base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}-资源素材列表{% endblock %}
+{% block custom_css %}
+
+{% endblock %}
+{% block content %}
+    <div class="tpl-content-wrapper">
+            <div class="row-content am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">我的资料</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body am-fr">
+
+                                <form class="am-form tpl-form-border-form tpl-form-border-br">
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">昵称</label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" value="{{ request.user.first_name }}" class="tpl-form-input" id="user-name" placeholder="请输入昵称">
+                                            <small>请填写昵称10-20字左右。</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label class="am-u-sm-3 am-form-label">手机号码</label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" value="{{ request.user.username }}" placeholder="输入手机号码">
+                                            <small>手机号码是你的登录号码，请谨慎操作。</small>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label class="am-u-sm-3 am-form-label">电子邮件</label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" value="{{ request.user.email }}" placeholder="输入电子邮件">
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

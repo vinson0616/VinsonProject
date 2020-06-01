@@ -427,6 +427,34 @@ img.zoom-img {
 .btn-3d:focus::before {
   transform: rotateX(10deg);
 }
+.btn-4d {
+  position: relative;
+  perspective: 800px;
+  transition: background 0.6s;
+  transform-origin: 50% 0;
+  transform-style: preserve-3d;
+}
+.btn-4d::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f0a34a;
+  border-radius: inherit;
+  color: inherit;
+  content: attr(data-hover);
+  transform: rotateX(270deg);
+  transition: transform 0.6s;
+  transform-origin: 0 0;
+  pointer-events: none;
+  padding: inherit;
+  font: inherit;
+}
+.btn-4d:hover::before,
+.btn-4d:focus::before {
+  transform: rotateX(10deg);
+}
 #ajax-loader {
   display: none;
   margin-top: 8px;

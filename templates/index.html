@@ -15,7 +15,7 @@
                     <div class="contents clearfix">
                         <p>{{system.company.notice_content}}</p>
                     </div>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="资源下载" href="#" role="button">资源下载</a>
+                    <a class="btn btn-warning btn-lg btn-3d" data-hover="资源下载" href="{% url 'library:list' %}" role="button">资源下载</a>
                     <a class="btn btn-default btn-border btn-lg" href="#" role="button">志愿报考</a>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         <article class="property layout-item clearfix">
                             <figure class="feature-image">
                                 <a class="clearfix zoom" href="{% url 'library:detail' library.id %}">
-                                    <img data-action="zoom" width="350px" height="233px" src="{{MEDIA_URL}}{{ library.image }}" alt="{{library.name}}"></a>
+                                     <img data-action="zoom" width="350px" height="233px" src="{% if library.image %}{{MEDIA_URL}}{{ library.image }}{% else %}{% static 'images/property/1.jpg' %}{% endif %}" alt="{{library.name}}">
                                 <span class="btn btn-warning btn-sale">{{library.category.parent_category.name}}</span>
                             </figure>
                             <div class="property-contents clearfix">
@@ -47,7 +47,7 @@
                                     {% if request.user.is_authenticated %}
                                         <a class="btn btn-default btn-price pull-right btn-3d" href="{% if library.download %}{{ MEDIA_URL }}{{ library.download }}{% else %}{{ library.url }}{% endif %}" target="_blank" download="" data-hover="免费下载"><strong>免费下载</strong></a>
                                     {% else %}
-                                        <a class="btn btn-warning btn-price pull-right btn-3d" href="{% url 'users:login' %}"  data-hover="请登录"><strong>请登录</strong></a>
+                                        <a class="btn btn-warning btn-price pull-right btn-4d" href="{% url 'users:login' %}"  data-hover="请登录"><strong>请登录</strong></a>
                                     {% endif %}
                                 </header>
                                 <div class="property-meta clearfix">
@@ -81,7 +81,9 @@
                         <div class="col-lg-4 col-md-6">
                             <article class="property clearfix">
                                 <figure class="feature-image">
-                                    <a class="clearfix" href="{% url 'library:detail' library.id %}"> <img src="{{MEDIA_URL}}{{ library.image }}" alt="{{library.name}}"></a>
+                                    <a class="clearfix" href="{% url 'library:detail' library.id %}">
+                                         <img data-action="zoom" width="350px" height="233px" src="{% if library.image %}{{MEDIA_URL}}{{ library.image }}{% else %}{% static 'images/property/1.jpg' %}{% endif %}" alt="{{library.name}}">
+                                    </a>
                                 </figure>
                                 <div class="property-contents">
                                     <header class="property-header clearfix">
@@ -92,7 +94,7 @@
                                         {% if request.user.is_authenticated %}
                                             <a class="btn btn-default btn-price pull-right btn-3d" href="{% if library.download %}{{ MEDIA_URL }}{{ library.download }}{% else %}{{ library.url }}{% endif %}" target="_blank" download="" data-hover="免费下载"><strong>免费下载</strong></a>
                                         {% else %}
-                                            <a class="btn btn-warning btn-price pull-right btn-3d" href="{% url 'users:login' %}"  data-hover="请登录"><strong>请登录</strong></a>
+                                            <a class="btn btn-warning btn-price pull-right btn-4d" href="{% url 'users:login' %}"  data-hover="请登录"><strong>请登录</strong></a>
                                         {% endif %}
                                     </header>
                                     <div class="property-meta clearfix">

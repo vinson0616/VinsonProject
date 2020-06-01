@@ -44,7 +44,7 @@
                     <div class="clearfix">
                         {% if request.user.is_authenticated %}
                             <a href="{% url 'users:logout' %}" class="btn btn-default btn-lg header-btn hidden-sm">退出</a>
-                            <a href="#" class="btn btn-default btn-lg header-btn hidden-sm">您好，{{request.user.username}}</a>
+                            <a href="{% url 'users:usercenter-info' %}" class="btn btn-default btn-lg header-btn hidden-sm">您好，{{request.user.username}}</a>
                         {% else %}
                             <a href="{% url 'users:login' %}" class="btn btn-warning btn-lg header-btn hidden-sm">登录</a>
                             <a href="{% url 'users:register' %}" class="btn btn-warning btn-lg header-btn hidden-sm">注册</a>
