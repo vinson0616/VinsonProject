@@ -42,3 +42,19 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CompanyLink(models.Model):
+    """
+    公司环节
+    """
+    name = models.CharField(max_length=50, verbose_name="产品名称")
+    image = models.ImageField(upload_to="products/", verbose_name="图片", blank=True, null=True, max_length=100)
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+
+    class Meta:
+        verbose_name = "公司环节"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name

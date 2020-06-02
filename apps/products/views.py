@@ -4,7 +4,7 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 from companys.views import get_system_info
 
-from .models import Product, ProductCategory
+from .models import Product, ProductCategory, CompanyLink
 
 
 class ProductListView(View):
@@ -79,4 +79,19 @@ class ProductDetailView(View):
         return render(request, "products-detail.html", {
             "system": get_system_info(),
             "product": product
+        })
+
+
+class CompanyLinkListView(View):
+    """
+        公司环节
+        """
+
+    def get(self, request):
+
+        companyLinks = CompanyLink.objects.all()
+
+        return render(request, "company-link.html", {
+            "system": get_system_info(),
+            "companyLinks": companyLinks
         })

@@ -34,25 +34,25 @@
 
     </section>
 
-    <section class="row our-plumbers">
-        <div class="container">
-            <h2 class="section-title">公司优秀团队</h2>
-            <div class="row plumber-lists">
-                {% for employee in employees %}
-                    <div class="col-md-3 col-sm-6 col-xs-6 our-plumber">
-                        <div class="row inner">
-                            <img src="{{MEDIA_URL}}{{ employee.image }}" alt="">
-                            <div class="overlay"></div>
-                            <div class="his-details row">
-                                <h4 class="name">{{employee.name}}</h4>
-                                <p>{{employee.desc}}</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
+{#    <section class="row our-plumbers">#}
+{#        <div class="container">#}
+{#            <h2 class="section-title">公司优秀团队</h2>#}
+{#            <div class="row plumber-lists">#}
+{#                {% for employee in employees %}#}
+{#                    <div class="col-md-3 col-sm-6 col-xs-6 our-plumber">#}
+{#                        <div class="row inner">#}
+{#                            <img src="{{MEDIA_URL}}{{ employee.image }}" alt="">#}
+{#                            <div class="overlay"></div>#}
+{#                            <div class="his-details row">#}
+{#                                <h4 class="name">{{employee.name}}</h4>#}
+{#                                <p>{{employee.desc}}</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
 
     <section class="row emmergency-leaks">
         <div class="container">

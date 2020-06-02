@@ -38,30 +38,6 @@
     </div>
 
 
-    <section class="row maintance-row">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="media maintance-media">
-                        <div class="media-left"><span><img src="{% static 'images/icons/3.png' %}" alt=""></span></div>
-                        <div class="media-body">
-                            <h4 class="this-title">需要购买产品 <span>联系我们</span></h4>
-                            <p>我们24小时为你服务，请拨打以下热线电话. <a href="#">{{system.company.phone}}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="media maintance-media">
-                        <div class="media-left"><span><img src="{% static 'images/icons/4.png' %}" alt=""></span></div>
-                        <div class="media-body">
-                            <h4 class="this-title">产品专业 <span>维修服务</span></h4>
-                            <p>你在我们家购买的产品，我们免费服务一年，请拨电话 <a href="#">{{system.company.phone}}</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="row welcome-section">
         <div class="container">
@@ -109,7 +85,7 @@
 
     <section class="row latest-projects">
         <div class="container">
-            <h2 class="section-title">公司产品</h2>
+            <h2 class="section-title">公司环节</h2>
             <div class="row filterable-gallery">
                 <div class="grid-sizer size1"></div>
                 {% for product in products %}
@@ -119,7 +95,7 @@
                             <div class="this-infos">
                                 <div class="infos-inner">
                                     <h4 class="this-title">{{product.name}}</h4>
-                                    <a href="#" class="this-link btn btn-primary">查看详情</a>
+{#                                    <a href="#" class="this-link btn btn-primary">查看详情</a>#}
                                 </div>
                             </div>
                         </div>
@@ -129,37 +105,4 @@
         </div>
     </section>
 
-    <section class="row emmergency-leaks">
-        <div class="container">
-            <h4 class="this-intro">{{system.company.notice_content}}</h4>
-            <h2 class="this-title">{{system.company.notice_title}}</h2>
-            <a href="#" class="call-link">{{system.company.phone}}</a>
-        </div>
-    </section>
-
-
-    <section class="row testimonial-row">
-        <div class="container">
-            <h2 class="section-title">公司团队</h2>
-            <div class="row">
-                <div class="testimonial-carousel">
-                    {% for employee in employees %}
-                        <div class="item testimonial-block">
-                            <div class="testimonial-text-box row">
-                                <div class="this-quote">“</div>
-                                <div class="this-texts">{{ employee.desc }}</div>
-                            </div>
-                            <div class="media testimonial-author">
-                                <div class="media-left"><a href="#"><img src="{{MEDIA_URL}}{{ employee.image }}" alt="" class="img-circle"></a></div>
-                                <div class="media-body">
-                                    <h4 class="this-title">{{employee.name}}</h4>
-                                    <h6 class="loc">{{employee.position}}</h6>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </section>
 {% endblock %}

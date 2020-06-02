@@ -6,7 +6,7 @@ from xadmin.models import Log
 
 from .models import UserProfile, Banner, Navigation
 from companys.models import Company, Employee, CompanyHistory, FriendlyLink, UserMessage
-from products.models import ProductCategory, Product
+from products.models import ProductCategory, Product,CompanyLink
 from systems.models import CircleItem
 from news.models import News
 from jobs.models import Position
@@ -24,16 +24,18 @@ class GlobalSettings(object):
 
     def get_site_menu(self):
         return (
-            {'title': '产品管理', 'menus': (
-                {'title': '产品类别', 'url': self.get_model_url(ProductCategory, 'changelist')},
-                {'title': '产品信息', 'url': self.get_model_url(Product, 'changelist')},
-            )},
+            # {'title': '产品管理', 'menus': (
+            #     {'title': '产品类别', 'url': self.get_model_url(ProductCategory, 'changelist')},
+            #     {'title': '产品信息', 'url': self.get_model_url(Product, 'changelist')},
+            #     {'title': '公司环节', 'url': self.get_model_url(Product, 'changelist')},
+            # )},
             {'title': '用户管理', 'menus': (
                 {'title': '用户信息', 'url': self.get_model_url(UserProfile, 'changelist')},
                 {'title': '在线留言', 'url': self.get_model_url(UserMessage, 'changelist')},
             )},
             {'title': '公司管理', 'menus': (
                 {'title': '我的公司', 'url': self.get_model_url(Company, 'changelist')},
+                {'title': '公司环节', 'url': self.get_model_url(CompanyLink, 'changelist')},
                 {'title': '公司大事记', 'url': self.get_model_url(CompanyHistory, 'changelist')},
                 {'title': '员工管理', 'url': self.get_model_url(Employee, 'changelist')},
                 {'title': '新闻动态', 'url': self.get_model_url(News, 'changelist')},
@@ -80,6 +82,13 @@ class ProductAdmin(object):
     list_filter = ['name', 'category', 'add_time']
     readonly_fields = ['add_time']
     style_fields = {'detail': 'ueditor'}
+
+
+class CompanyLinkAdmin(object):
+    list_display = ['name', 'add_time']
+    search_fields = ['name', 'add_time']
+    list_filter = ['name', 'add_time']
+    readonly_fields = ['add_time']
 
 
 class EmployeeAdmin(object):
@@ -151,3 +160,4 @@ xadmin.site.register(FriendlyLink, FriendlyLinkAdmin)
 xadmin.site.register(News, NewsAdmin)
 xadmin.site.register(Position, PositionAdmin)
 xadmin.site.register(UserMessage, UserMessageAdmin)
+xadmin.site.register(CompanyLink, CompanyLinkAdmin)
