@@ -91,11 +91,10 @@
                 {% for product in products %}
                     <div class="col-md-4 col-sm-4 lp-gallery-item gallery-item">
                         <div class="row this-inner">
-                            <img src="{{MEDIA_URL}}{{ product.image }}" height="312" alt="">
+                            <img data-action="zoom" src="{{MEDIA_URL}}{{ product.image }}" height="312" alt="">
                             <div class="this-infos">
                                 <div class="infos-inner">
                                     <h4 class="this-title">{{product.name}}</h4>
-{#                                    <a href="#" class="this-link btn btn-primary">查看详情</a>#}
                                 </div>
                             </div>
                         </div>
@@ -106,3 +105,4 @@
     </section>
 
 {% endblock %}
+
