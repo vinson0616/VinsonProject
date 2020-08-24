@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'systems',
     'news',
     'jobs',
-    'library'
+    'library',
+    'reports'
 ]
 
 AUTH_USER_MODEL = "users.UserProfile"

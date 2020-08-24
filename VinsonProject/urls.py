@@ -51,6 +51,9 @@ urlpatterns = [
     # 资源素材 相关url配置
     path("libraries/", include('library.urls', namespace="library")),
 
+    # 报名窗口
+    path("reports/", include('reports.urls', namespace="reports")),
+
     # 用户登录
     path('login/', LoginView.as_view(), name="login"),
 ]
