@@ -86,19 +86,17 @@
     <section class="row latest-projects">
         <div class="container">
             <h2 class="section-title">公司环节</h2>
-            <div class="row filterable-gallery">
-                <div class="grid-sizer size1"></div>
+            <div class="row">
+
                 {% for product in products %}
-                    <div class="col-md-4 col-sm-4 lp-gallery-item gallery-item">
-                        <div class="row this-inner">
-                            <img data-action="zoom" src="{{MEDIA_URL}}{{ product.image }}" height="312" alt="">
-                            <div class="this-infos">
-                                <div class="infos-inner">
-                                    <h4 class="this-title">{{product.name}}</h4>
-                                </div>
-                            </div>
-                        </div>
+
+                    <div class="col-md-4 col-sm-6 service-grid">
+{#                        <div class="featured-image">#}
+                            <img data-action="zoom" src="{{MEDIA_URL}}{{ product.image }}" alt="" height="210">
+{#                        </div>#}
+                        <h3 class="this-title" style="text-align: center;"><a href="#">{{product.name}}</a></h3>
                     </div>
+
                 {% endfor %}
             </div>
         </div>

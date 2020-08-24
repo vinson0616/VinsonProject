@@ -3,6 +3,7 @@
 {% block title %}{{ system.company.company_name }}{% endblock %}
 {% block custom_css %}
     <link rel='stylesheet' href='{% static 'css/pagination.css' %}' type='text/css' media='all' />
+
 {% endblock %}
 {% block content %}
     <section class="row page-cover">
@@ -28,17 +29,14 @@
                 {% for companyLink in companyLinks %}
 
                     <div class="col-md-4 col-sm-6 service-grid">
-{#                        <a href="#" class="featured-image">#}
+{#                        <div class="featured-image">#}
                             <img data-action="zoom" src="{{MEDIA_URL}}{{ companyLink.image }}" alt="" height="210">
-{#                        </a>#}
-                        <h3 class="this-title" style="text-align: center"><a href="#">{{companyLink.name}}</a></h3>
+{#                        </div>#}
+                        <h3 class="this-title" style="text-align: center;"><a href="#">{{companyLink.name}}</a></h3>
                     </div>
 
                 {% endfor %}
             </div>
         </div>
     </section>
-{% endblock %}
-{% block custom_js %}
-    <script src="{% static 'zoom/zoom.js' %}"></script>
 {% endblock %}
