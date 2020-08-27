@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ system.company.company_name }}-报名窗口{% endblock %}
+{% block custom_css %}
+    <link href="{% static 'css/report.css' %}" rel='stylesheet' type='text/css' />
+{% endblock %}
+{% block content %}
+    <section class="row contact-form-area site-contents">
+        <div class="container">
+            <h2 style="color: red">{{msg}}</h2>
+            <p>{{ detail }}</p>
+            <p style="margin-top: 20px;">
+                <a href="{% url 'reports:index' %}" class="btn btn-default btn-lg">返回</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}
+{% block custom_js %}
+    <script>
+        $(function () {
+            $('#jsStayBtn').on('click', function () {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{% url "reports:info" %}",
+                    data: $('#jsStayForm').serialize(),
+                    async: true,
+                    success: function (data) {
+                        if (data.status == 'success') {
+                            alert(data.msg);
+                            window.location.reload();
+                        } else if (data.status == 'fail') {
+                            alert(data.msg);
+                        }
+                    },
+                });
+            });
+        })
+    </script>
+
+{% endblock %}

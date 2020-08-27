@@ -10,6 +10,7 @@ from library.models import LibraryCategory, LibraryMedia
 from systems.models import CircleItem
 from news.models import News
 from jobs.models import Position
+from reports.models import Report
 
 
 class BaseSetting(object):
@@ -27,6 +28,9 @@ class GlobalSettings(object):
             {'title': '资源素材', 'menus': (
                 {'title': '资源素材类别', 'url': self.get_model_url(LibraryCategory, 'changelist')},
                 {'title': '资源素材库', 'url': self.get_model_url(LibraryMedia, 'changelist')},
+            )},
+            {'title': '报名服务', 'menus': (
+                {'title': '在线报名', 'url': self.get_model_url(Report, 'changelist')},
             )},
             {'title': '用户管理', 'menus': (
                 {'title': '用户信息', 'url': self.get_model_url(UserProfile, 'changelist')},
@@ -124,6 +128,13 @@ class UserMessageAdmin(object):
     readonly_fields = ['add_time']
 
 
+class ReportAdmin(object):
+    list_display = ['name', 'phone', 'school', 'major', 'type', 'address', 'add_time']
+    search_fields = ['name', 'phone', 'school', 'major', 'type', 'address', 'add_time']
+    list_filter = ['name', 'phone', 'school', 'major', 'type', 'address', 'add_time']
+    readonly_fields = ['add_time']
+
+
 xadmin.site.register(views.CommAdminView, GlobalSettings)
 xadmin.site.register(Banner, BannerAdmin)
 xadmin.site.register(Company, CompanyAdmin)
@@ -135,3 +146,4 @@ xadmin.site.register(FriendlyLink, FriendlyLinkAdmin)
 xadmin.site.register(News, NewsAdmin)
 xadmin.site.register(Position, PositionAdmin)
 xadmin.site.register(UserMessage, UserMessageAdmin)
+xadmin.site.register(Report, ReportAdmin)
