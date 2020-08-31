@@ -886,8 +886,8 @@ img.zoom-img {
 }
 #home-features-section {
   padding: 80px 0 0 0;
-  min-height: 990px;
-  background: url("../images/features/bg-img.png") center bottom no-repeat #f9f9f9;
+  /*min-height: 990px;*/
+  /*background: url("../images/features/bg-img.png") center bottom no-repeat #f9f9f9;*/
 }
 #home-features-section .feature {
   margin-bottom: 30px;

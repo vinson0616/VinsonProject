@@ -5,7 +5,7 @@
     <div class="main-slider-wrapper clearfix">
         <div id="main-slider">
             {% for banner in all_banners %}
-                <div class="slide"><img src="{{MEDIA_URL}}{{ banner.image }}" alt="Slide"></div>
+                <div class="slide" style="height: 600px; background-image:url({{MEDIA_URL}}{{ banner.image }}"></div>
             {% endfor %}
         </div>
         <div id="slider-contents">
@@ -21,94 +21,94 @@
             </div>
         </div>
     </div>
-    <section id="home-property-listing">
-        <header class="section-header home-section-header text-center">
-            <div class="container">
-                <h2 class="wow slideInRight">热门资源素材</h2>
-                <p class="wow slideInLeft">我们已建立完善的版权备案及商用授权体系，全站原创素材包图网均拥有独家版权或已取得版权方授权，因此内容可授权企业用于线上传播、线下印刷、装饰装修、户外广告、转售商品等多个商业用途，为企业用户提供强大的版权保障，无需担心版权风险。</p>
-            </div>
-        </header>
-        <div class="container">
-            <div class="row">
-                {% for library in libraries %}
-                    <div class="col-lg-4 col-sm-6 layout-item-wrap">
-                        <article class="property layout-item clearfix">
-                            <figure class="feature-image">
-                                <a class="clearfix zoom" href="{% url 'library:detail' library.id %}">
-                                     <img data-action="zoom" width="350px" height="233px" src="{% if library.image %}{{MEDIA_URL}}{{ library.image }}{% else %}{% static 'images/property/1.jpg' %}{% endif %}" alt="{{library.name}}">
-                                <span class="btn btn-warning btn-sale">{{library.category.parent_category.name}}</span>
-                            </figure>
-                            <div class="property-contents clearfix">
-                                <header class="property-header clearfix">
-                                    <div class="pull-left">
-                                        <h6 class="entry-title"><a href="{% url 'library:detail' library.id %}">{{library.name}}</a></h6>
-                                        <span class="property-location"><i class="fa fa-map-marker"></i> {{ library.category.parent_category.name }}->{{ library.category.name }}</span>
-                                    </div>
-                                    {% if request.user.is_authenticated %}
-                                        <a class="btn btn-default btn-price pull-right btn-3d" href="{% if library.download %}{{ MEDIA_URL }}{{ library.download }}{% else %}{{ library.url }}{% endif %}" target="_blank" download="" data-hover="免费下载"><strong>免费下载</strong></a>
-                                    {% else %}
-                                        <a class="btn btn-warning btn-price pull-right btn-4d" href="{% url 'users:login' %}"  data-hover="请登录"><strong>请登录</strong></a>
-                                    {% endif %}
-                                </header>
-                                <div class="property-meta clearfix">
-                                    <span><i class="fa fa-user"></i> {{library.click_nums}}</span>
-                                    <span><i class="fa fa-download"></i> 120 </span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <section id="announcement-section" class="text-center">
-        <div class="container ">
-            <h2 class="title wow slideInLeft">{{system.company.notice_title}}</h2>
-            <p class="wow slideInRight">{{system.company.notice_content}}</p>
-        </div>
-    </section>
-    <section id="home-property-for-rent-listing">
-        <header class="section-header home-section-header text-center">
-            <div class="container">
-                <h2 class="wow slideInLeft">优秀个人作品</h2>
-                <p class="wow slideInRight">可以在本平台填写相关的报考信息，志愿填报，系统会根据填写的志愿填报来自动推荐相关的专业以及学校</p>
-            </div>
-        </header>
-        <div class="container">
-            <div class="row">
-                <div id="property-for-rent-slider">
-                    {% for library in libraries %}
-                        <div class="col-lg-4 col-md-6">
-                            <article class="property clearfix">
-                                <figure class="feature-image">
-                                    <a class="clearfix" href="{% url 'library:detail' library.id %}">
-                                         <img data-action="zoom" width="350px" height="233px" src="{% if library.image %}{{MEDIA_URL}}{{ library.image }}{% else %}{% static 'images/property/1.jpg' %}{% endif %}" alt="{{library.name}}">
-                                    </a>
-                                </figure>
-                                <div class="property-contents">
-                                    <header class="property-header clearfix">
-                                        <div class="pull-left">
-                                            <h6 class="entry-title"><a href="{% url 'library:detail' library.id %}">{{library.name}}</a></h6>
-                                            <span class="property-location"><i class="fa fa-map-marker"></i> {{ library.category.parent_category.name }}->{{ library.category.name }}</span>
-                                        </div>
-                                        {% if request.user.is_authenticated %}
-                                            <a class="btn btn-default btn-price pull-right btn-3d" href="{% if library.download %}{{ MEDIA_URL }}{{ library.download }}{% else %}{{ library.url }}{% endif %}" target="_blank" download="" data-hover="免费下载"><strong>免费下载</strong></a>
-                                        {% else %}
-                                            <a class="btn btn-warning btn-price pull-right btn-4d" href="{% url 'users:login' %}"  data-hover="请登录"><strong>请登录</strong></a>
-                                        {% endif %}
-                                    </header>
-                                    <div class="property-meta clearfix">
-                                        <span><i class="fa fa-user"></i> {{library.click_nums}}</span>
-                                        <span><i class="fa fa-download"></i> 120 </span>
-                                    </div>
-                                </div>
-                            </article></div>
-                    {% endfor %}
-
-                </div>
-            </div>
-        </div>
-    </section>
+{#    <section id="home-property-listing">#}
+{#        <header class="section-header home-section-header text-center">#}
+{#            <div class="container">#}
+{#                <h2 class="wow slideInRight">热门资源素材</h2>#}
+{#                <p class="wow slideInLeft">我们已建立完善的版权备案及商用授权体系，全站原创素材包图网均拥有独家版权或已取得版权方授权，因此内容可授权企业用于线上传播、线下印刷、装饰装修、户外广告、转售商品等多个商业用途，为企业用户提供强大的版权保障，无需担心版权风险。</p>#}
+{#            </div>#}
+{#        </header>#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                {% for library in libraries %}#}
+{#                    <div class="col-lg-4 col-sm-6 layout-item-wrap">#}
+{#                        <article class="property layout-item clearfix">#}
+{#                            <figure class="feature-image">#}
+{#                                <a class="clearfix zoom" href="{% url 'library:detail' library.id %}">#}
+{#                                     <img data-action="zoom" width="350px" height="233px" src="{% if library.image %}{{MEDIA_URL}}{{ library.image }}{% else %}{% static 'images/property/1.jpg' %}{% endif %}" alt="{{library.name}}">#}
+{#                                <span class="btn btn-warning btn-sale">{{library.category.parent_category.name}}</span>#}
+{#                            </figure>#}
+{#                            <div class="property-contents clearfix">#}
+{#                                <header class="property-header clearfix">#}
+{#                                    <div class="pull-left">#}
+{#                                        <h6 class="entry-title"><a href="{% url 'library:detail' library.id %}">{{library.name}}</a></h6>#}
+{#                                        <span class="property-location"><i class="fa fa-map-marker"></i> {{ library.category.parent_category.name }}->{{ library.category.name }}</span>#}
+{#                                    </div>#}
+{#                                    {% if request.user.is_authenticated %}#}
+{#                                        <a class="btn btn-default btn-price pull-right btn-3d" href="{% if library.download %}{{ MEDIA_URL }}{{ library.download }}{% else %}{{ library.url }}{% endif %}" target="_blank" download="" data-hover="免费下载"><strong>免费下载</strong></a>#}
+{#                                    {% else %}#}
+{#                                        <a class="btn btn-warning btn-price pull-right btn-4d" href="{% url 'users:login' %}"  data-hover="请登录"><strong>请登录</strong></a>#}
+{#                                    {% endif %}#}
+{#                                </header>#}
+{#                                <div class="property-meta clearfix">#}
+{#                                    <span><i class="fa fa-user"></i> {{library.click_nums}}</span>#}
+{#                                    <span><i class="fa fa-download"></i> 120 </span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </article>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+{#    <section id="announcement-section" class="text-center">#}
+{#        <div class="container ">#}
+{#            <h2 class="title wow slideInLeft">{{system.company.notice_title}}</h2>#}
+{#            <p class="wow slideInRight">{{system.company.notice_content}}</p>#}
+{#        </div>#}
+{#    </section>#}
+{#    <section id="home-property-for-rent-listing">#}
+{#        <header class="section-header home-section-header text-center">#}
+{#            <div class="container">#}
+{#                <h2 class="wow slideInLeft">优秀个人作品</h2>#}
+{#                <p class="wow slideInRight">可以在本平台填写相关的报考信息，志愿填报，系统会根据填写的志愿填报来自动推荐相关的专业以及学校</p>#}
+{#            </div>#}
+{#        </header>#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div id="property-for-rent-slider">#}
+{#                    {% for library in libraries %}#}
+{#                        <div class="col-lg-4 col-md-6">#}
+{#                            <article class="property clearfix">#}
+{#                                <figure class="feature-image">#}
+{#                                    <a class="clearfix" href="{% url 'library:detail' library.id %}">#}
+{#                                         <img data-action="zoom" width="350px" height="233px" src="{% if library.image %}{{MEDIA_URL}}{{ library.image }}{% else %}{% static 'images/property/1.jpg' %}{% endif %}" alt="{{library.name}}">#}
+{#                                    </a>#}
+{#                                </figure>#}
+{#                                <div class="property-contents">#}
+{#                                    <header class="property-header clearfix">#}
+{#                                        <div class="pull-left">#}
+{#                                            <h6 class="entry-title"><a href="{% url 'library:detail' library.id %}">{{library.name}}</a></h6>#}
+{#                                            <span class="property-location"><i class="fa fa-map-marker"></i> {{ library.category.parent_category.name }}->{{ library.category.name }}</span>#}
+{#                                        </div>#}
+{#                                        {% if request.user.is_authenticated %}#}
+{#                                            <a class="btn btn-default btn-price pull-right btn-3d" href="{% if library.download %}{{ MEDIA_URL }}{{ library.download }}{% else %}{{ library.url }}{% endif %}" target="_blank" download="" data-hover="免费下载"><strong>免费下载</strong></a>#}
+{#                                        {% else %}#}
+{#                                            <a class="btn btn-warning btn-price pull-right btn-4d" href="{% url 'users:login' %}"  data-hover="请登录"><strong>请登录</strong></a>#}
+{#                                        {% endif %}#}
+{#                                    </header>#}
+{#                                    <div class="property-meta clearfix">#}
+{#                                        <span><i class="fa fa-user"></i> {{library.click_nums}}</span>#}
+{#                                        <span><i class="fa fa-download"></i> 120 </span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </article></div>#}
+{#                    {% endfor %}#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
     <section id="home-features-section" class="text-center">
         <header class="section-header home-section-header">
             <div class="container">
